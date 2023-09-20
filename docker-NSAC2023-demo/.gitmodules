@@ -1,0 +1,3 @@
+[submodule "python_app"]
+    path = ./python_app
+    url = git@github.com:nicolaschicaiza/prj-python-NSAC2023-demo.git

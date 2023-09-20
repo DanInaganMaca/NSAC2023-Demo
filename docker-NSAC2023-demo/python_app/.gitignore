@@ -1,0 +1,21 @@
+# Python-specific
+*.pyc
+*.pyo
+__pycache__/
+config/__pycache__/
+
+# Django-specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+
+# Secret key
+.secret_key
+
+# Static files
+staticfiles/
+
+# Virtual environment
+venv/

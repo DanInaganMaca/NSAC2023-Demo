@@ -1,3 +1,0 @@
-[submodule "docker-NSAC2023-demo"]
-    path = ./docker-NSAC2023-demo/
-    url = git@github.com:nicolaschicaiza/docker-NSAC2023-demo.git

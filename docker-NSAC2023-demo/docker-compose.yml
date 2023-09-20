@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  python:
+    # Configuración del servicio del proyecto python 
+    build: 
+      context: .
+      dockerfile: docker_files/python/Dockerfile
+    container_name: python-container
+    volumes:
+      - ./python_app:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - kishron
+    # depends_on:
+    #   - db
+
+  react:
+    build:
+      context: .
+      dockerfile: docker_files/react/Dockerfile
+    container_name: react-container
+    volumes:
+      - ./react_app:/app
+      - ./react_app/node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - kishron
+
+  # db:
+  #   image: postgres:latest
+  #   environment:
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=secret
+  #     - POSTGRES_DB=demo
+
+networks:
+  kishron:

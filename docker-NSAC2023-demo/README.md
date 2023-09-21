@@ -4,7 +4,7 @@
 2. [Instalar dependencias de Python](#instalar-dependencias-de-python)
 3. [Ejecutar Docker compose](#ejecutar-docker-compose)
 4. [Pruebas de funcionamiento](#pruebas-de-funcionamiento)
-  * [Comunicación entre Backend Django y DB Postgresql](#comunicación-entre-backend-django-y-db-postgresql)
+  [Comunicación entre Backend Django y DB Postgresql](#comunicación-entre-backend-django-y-db-postgresql)
 5. [Solución de problemas](#solución-de-problemas)
 
 ---

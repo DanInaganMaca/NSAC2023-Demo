@@ -7,42 +7,42 @@ Demo
 ==========
 
 1. Instalar SSH en caso de que no lo tenga
-``bash
+```bash
 sudo apt-get install openssh-server
-``
+```
 
 3. Instalar git
-   ``bash
-   sudo apt-get install git
-   ``
+```bash
+sudo apt-get install git
+```
   
 4. Instalar docker
-``bash
+```bash
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
-``
-``bash
+```
+```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-``
-``bash
+```
+```bash
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-``
-``bash
+```
+```bash
 sudo apt-get update
-``
-``bash
+```
+```bash
 sudo apt-get upgrade
-``
-``bash
+```
+```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-``
-``bash
+```
+```bash
 sudo systemctl status docker
-``
-``bash
+```
+```bash
 sudo usermod -aG docker $USER
-``
+```
 
 4. clonar repositorio
-``bash
+```bash
 git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
-``
+```

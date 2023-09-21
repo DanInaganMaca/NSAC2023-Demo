@@ -82,5 +82,7 @@ ssh -T git@github.com
 
 9. Cierra la sesión actual o reinicia tu máquina para aplicar los cambios.
 
-- clonar repositorio 
-  . git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git 
+4. clonar repositorio
+```bash
+git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
+```

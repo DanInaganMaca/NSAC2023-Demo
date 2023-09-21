@@ -1,8 +1,10 @@
 Django==4.1
 djangorestframework
 drf-yasg
-tensorflow
+psycopg2-binary
+python-decouple
 opencv-python
 pandas
 matplotlib
 seaborn
+tensorflow

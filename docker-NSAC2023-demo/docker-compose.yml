@@ -1,6 +1,22 @@
 version: '3'
 
 services:
+
+  db:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=nsac2023-demo
+    volumes:
+      - ./db_backups:/backups
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - nsac2023
+
   python:
     # Configuración del servicio del proyecto python 
     build: 
@@ -9,12 +25,15 @@ services:
     container_name: python-container
     volumes:
       - ./python_app:/app
+      - ./python_app/.env:/app/.env
+      - ./wait-for-it.sh:/app/wait-for-it.sh
     ports:
       - "8000:8000"
     networks:
-      - kishron
-    # depends_on:
-    #   - db
+      - nsac2023
+    depends_on:
+      - db
+    command: ["./wait-for-it.sh", "db:5432", "--", "python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
   react:
     build:
@@ -27,14 +46,13 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - kishron
+      - nsac2023
+    depends_on:
+      - python
 
-  # db:
-  #   image: postgres:latest
-  #   environment:
-  #     - POSTGRES_USER=root
-  #     - POSTGRES_PASSWORD=secret
-  #     - POSTGRES_DB=demo
+volumes:
+  pgdata:
 
 networks:
-  kishron:
+  nsac2023:
+    driver: bridge

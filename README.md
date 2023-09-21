@@ -41,6 +41,13 @@ sudo systemctl status docker
 ```bash
 sudo usermod -aG docker $USER
 ```
+- Probar si Docker funciona
+```bash
+docker run hello-world
+```
+```bash
+docker run -it ubuntu bash
+```
 
 4. clonar repositorio
 ```bash

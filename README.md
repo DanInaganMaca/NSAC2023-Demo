@@ -12,12 +12,12 @@ Python 3 es un lenguaje de programación ampliamente utilizado y es necesario in
 
 Realizar estas tareas previas garantizará que tu ambiente de desarrollo esté configurado correctamente y pueda funcionar de manera óptima. Asegúrate de seguir la guía a continuación adecuadamente para establecer la conexión de GitHub a través de SSH, instalar Docker, nvm y Python 3 antes de continuar con la instalación del ambiente de desarrollo.
 
-1. [Establecer conexión con GitHub a través de SSH](#establecer-conexión-con-github-a-través-de-ssh)
-  [Clonar repositorio como Developer](#clonar-repositorio-como-developer)
+1. [Establecer conexión con GitHub a través de SSH](#establecer-conexión-con-github-a-través-de-ssh)  
+1.1 [Clonar repositorio como Developer](#clonar-repositorio-como-developer)
 2. [Instalar Docker en Linux](#instalar-docker-en-linux)
-3. [Instalar nvm y gestionar versiones de Node.js](#instalar-nvm-y-gestionar-versiones-de-nodejs)
-  [Instalación de nvm](#instalación-de-nvm)
-  [Uso del archivo .nvmrc](#uso-del-archivo-nvmrcy)
+3. [Instalar nvm y gestionar versiones de Node.js](#instalar-nvm-y-gestionar-versiones-de-nodejs)  
+3.1 [Instalación de nvm](#instalación-de-nvm)  
+3.2 [Uso del archivo .nvmrc](#uso-del-archivo-nvmrcy)
 4. [Instalar Python 3](#instalar-python-3)
 
 ----

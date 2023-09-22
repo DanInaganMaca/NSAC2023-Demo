@@ -20,6 +20,12 @@ Realizar estas tareas previas garantizará que tu ambiente de desarrollo esté c
 3.2 [Uso del archivo .nvmrc](#uso-del-archivo-nvmrcy)
 4. [Instalar Python 3](#instalar-python-3)
 
+Las siguientes herramientas también deben estar instaladas en el sistema operativo: `git` y `ssh`. El comando para instalarlo es el siguiente:
+
+```
+sudo apt install git openssh-server
+```
+
 ----
 ## Establecer conexión con GitHub a través de SSH
 
@@ -184,7 +190,7 @@ El archivo .nvmrc permite especificar una versión específica de Node.js para u
 Para instalar Python 3, en la terminal, ejecuta el siguiente comando:
 
 ```
-  sudo apt install python3
+  sudo apt install python3 python3-pip
 ```
 
 El sistema te pedirá que confirmes la instalación y te mostrará el espacio en disco que se utilizará. Si estás de acuerdo, presiona "y" y luego "Enter" para comenzar la instalación.

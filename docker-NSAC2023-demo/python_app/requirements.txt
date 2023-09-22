@@ -3,7 +3,7 @@ djangorestframework
 drf-yasg
 psycopg2-binary
 python-decouple
-opencv-python
+opencv-contrib-python
 pandas
 matplotlib
 seaborn

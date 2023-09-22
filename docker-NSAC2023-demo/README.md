@@ -46,7 +46,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 2. Para gestionar las dependencias de Python, es recomendable utilizar un entorno virtual. Esto te permite aislar las dependencias del proyecto del resto del sistema. Si no tienes instalado `virtualenv`, puedes instalarlo ejecutando el siguiente comando:
 
    ```
-   pip install virtualenv
+   sudo apt install python3-virtualenv
    ```
 
 3. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:

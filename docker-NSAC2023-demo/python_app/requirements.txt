@@ -4,6 +4,7 @@ drf-yasg
 psycopg2-binary
 python-decouple
 opencv-contrib-python
+open3d
 pandas
 matplotlib
 seaborn

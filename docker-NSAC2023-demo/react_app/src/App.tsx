@@ -1,12 +1,26 @@
-import React from 'react'
-import { Button } from 'semantic-ui-react'
-import './App.scss'
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { TasksPage } from "./pages/TasksPage"
+import { TaskFormPage } from "./pages/TaskFormPage"
+import { Navigation } from "./components/Navigation"
+import { Toaster } from "react-hot-toast"
 
-export const App = (props: {}) => {
+function App() {
   return (
-    <div className='app'>
-      <h1 className='app__title'>Hola mundo!</h1>
-      <Button primary>Click Me</Button>
-    </div>
+    <BrowserRouter>
+      <div className="container mx-auto">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Navigate to="/tasks" />}></Route>
+          <Route path="/tasks" element={<TasksPage />}></Route>
+          <Route path="/tasks/create" element={<TaskFormPage />}></Route>
+          <Route path="/tasks/:id" element={<TaskFormPage />}></Route>
+        </Routes>
+        <Toaster />
+      </div>
+    </BrowserRouter>
   )
 }
+
+App.propTypes = {}
+
+export default App

@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { TasksPage } from "../pages/TasksPage";
 import { TaskFormPage } from "../pages/TaskFormPage";
 import { Toaster } from "react-hot-toast";
+import { HomePage } from "../pages/HomePage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -39,7 +40,8 @@ export function Template() {
           <BrowserRouter>
             <div className="container mx-auto">
               <Routes>
-                <Route path="/" element={<Navigate to="/tasks" />}></Route>
+                <Route path="/" element={<Navigate to="/home" />}></Route>
+                <Route path="/home" element={<HomePage />}></Route>
                 <Route path="/tasks" element={<TasksPage />}></Route>
                 <Route path="/tasks/create" element={<TaskFormPage />}></Route>
                 <Route path="/tasks/:id" element={<TaskFormPage />}></Route>

@@ -13,7 +13,7 @@ export function TaskCard({ task }: TaskCardProps) {
       onClick={() => {
         navigate(`/tasks/${task.id}`);
       }}>
-      <h1 className="font-bold uppercase">{task?.title}</h1>
+      <h3 className="font-bold uppercase">{task?.title}</h3>
       <p className="text-slate-400">{task?.description}</p>
     </div>
   )

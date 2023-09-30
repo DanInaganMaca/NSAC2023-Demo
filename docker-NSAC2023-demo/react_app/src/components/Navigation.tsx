@@ -1,3 +1,4 @@
+import { Button } from "antd"
 import { Link } from "react-router-dom"
 
 export function Navigation() {
@@ -7,9 +8,9 @@ export function Navigation() {
         <h1 className="font-bold text-3x1 mb-4">Tasks App</h1>
       </Link>
       <Link to="/tasks/create">
-        <button className="bg-indigo-500 px-3 py-2 rounded-lg">
+        <Button>
           Create task
-        </button>
+        </Button>
       </Link>
 
     </div>

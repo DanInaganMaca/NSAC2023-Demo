@@ -49,7 +49,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    sudo apt install python3-virtualenv
    ```
 
-3. Crea el archivo '.env': ejecuta el comando 'nano .env' y guarda ahí lo siguiente:
+3. Crea el archivo '.env': ejecuta el comando `nano .env` y guarda ahí lo siguiente:
 
    ```
    # .env

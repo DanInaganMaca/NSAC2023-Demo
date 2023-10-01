@@ -12,26 +12,8 @@
 ## Instalar dependencias de React
 
 1. Navega hasta el directorio del proyecto de React del repositorio, es el directorio llamado `react_app`.
-
-2. Crea un archivo '.env', primero ejecuta:
-
-   ´´´
-   nano .env
-   ´´´
-   Ahora agrega lo siguiente y guardalo:
-   ´´´
-   # .env
-
-   DEBUG=True
-   SECRET_KEY=secret
-   DB_NAME=nsac2023-demo
-   DB_USER=root
-   DB_PASSWORD=secret
-   DB_HOST=db
-   DB_PORT=5432
-   ´´´
    
-3. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
+2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
 
    ```
    nvm use
@@ -39,9 +21,9 @@
 
    Si obtienes la versión correspondiente, puedes pasar al siguiente paso. Si no, vuelve a la guía del ambiente de desarrollo.
 
-4. Una vez en el directorio raíz del repositorio clonado, busca el archivo `package.json`. Este archivo es esencial para instalar las dependencias del proyecto.
+3. Una vez en el directorio raíz del repositorio clonado, busca el archivo `package.json`. Este archivo es esencial para instalar las dependencias del proyecto.
 
-5. En la terminal, ejecuta el siguiente comando para instalar todas las dependencias del proyecto listadas en el archivo `package.json` y resolver los problemas relacionados con las dependencias heredadas:
+4. En la terminal, ejecuta el siguiente comando para instalar todas las dependencias del proyecto listadas en el archivo `package.json` y resolver los problemas relacionados con las dependencias heredadas:
 
    ```
    npm i --legacy-peer-deps
@@ -49,7 +31,7 @@
 
    Este comando leerá el archivo `package.json`, descargará e instalará todas las dependencias necesarias, y a su vez resolverá cualquier problema relacionado con las dependencias heredadas.
 
-6. Una vez que el comando `npm i --legacy-peer-deps` haya terminado de ejecutarse, todas las dependencias del proyecto deberían estar instaladas y listas para usar.
+5. Una vez que el comando `npm i --legacy-peer-deps` haya terminado de ejecutarse, todas las dependencias del proyecto deberían estar instaladas y listas para usar.
 
 Recuerda que el uso de `--legacy-peer-deps` puede ser necesario si estás utilizando una versión de npm anterior a la 7. Si estás utilizando npm 7 o superior, este flag no será necesario.
 
@@ -67,7 +49,21 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    sudo apt install python3-virtualenv
    ```
 
-3. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
+3. Crea el archivo '.env': ejecuta el comando 'nano .env' y guarda ahí lo siguiente:
+
+   ```
+   # .env
+
+   DEBUG=True
+   SECRET_KEY=secret
+   DB_NAME=nsac2023-demo
+   DB_USER=root
+   DB_PASSWORD=secret
+   DB_HOST=db
+   DB_PORT=5432
+   ```
+
+4. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
 
    ```
    virtualenv venv
@@ -75,7 +71,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
    Esto creará un nuevo directorio llamado "env" que contendrá el entorno virtual.
 
-4. Activa el entorno virtual ejecutando el siguiente comando:
+5. Activa el entorno virtual ejecutando el siguiente comando:
 
      ```
      source venv/bin/activate
@@ -83,7 +79,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
    Al activar el entorno virtual, el prompt de la terminal debe cambiar para indicar que estás utilizando el entorno virtual.
 
-5. Una vez dentro del entorno virtual, puedes instalar las dependencias del proyecto utilizando el gestor de paquetes `pip`. En el directorio raíz del proyecto, normalmente se encuentra un archivo `requirements.txt` que lista todas las dependencias necesarias.
+6. Una vez dentro del entorno virtual, puedes instalar las dependencias del proyecto utilizando el gestor de paquetes `pip`. En el directorio raíz del proyecto, normalmente se encuentra un archivo `requirements.txt` que lista todas las dependencias necesarias.
 
    Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
 
@@ -93,7 +89,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
    Esto leerá el archivo `requirements.txt` y descargará e instalará todas las dependencias necesarias en el entorno virtual.
 
-6. Una vez que todas las dependencias se hayan instalado correctamente, estamos listos para ejecutar los contenedores.
+7. Una vez que todas las dependencias se hayan instalado correctamente, estamos listos para ejecutar los contenedores.
 
 Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
 

@@ -60,7 +60,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 4. Activa el entorno virtual ejecutando el siguiente comando:
 
      ```
-     source env/bin/activate
+     source venv/bin/activate
      ```
 
    Al activar el entorno virtual, el prompt de la terminal debe cambiar para indicar que estás utilizando el entorno virtual.

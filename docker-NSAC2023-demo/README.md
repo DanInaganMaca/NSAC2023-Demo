@@ -52,7 +52,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 3. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
 
    ```
-   virtualenv env
+   virtualenv venv
    ```
 
    Esto creará un nuevo directorio llamado "env" que contendrá el entorno virtual.

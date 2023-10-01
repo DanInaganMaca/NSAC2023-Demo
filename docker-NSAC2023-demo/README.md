@@ -13,7 +13,25 @@
 
 1. Navega hasta el directorio del proyecto de React del repositorio, es el directorio llamado `react_app`.
 
-2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
+2. Crea un archivo '.env', primero ejecuta:
+
+   ´´´
+   nano .env
+   ´´´
+   Ahora agrega lo siguiente y guardalo:
+   ´´´
+   # .env
+
+   DEBUG=True
+   SECRET_KEY=secret
+   DB_NAME=nsac2023-demo
+   DB_USER=root
+   DB_PASSWORD=secret
+   DB_HOST=db
+   DB_PORT=5432
+   ´´´
+   
+3. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
 
    ```
    nvm use
@@ -21,9 +39,9 @@
 
    Si obtienes la versión correspondiente, puedes pasar al siguiente paso. Si no, vuelve a la guía del ambiente de desarrollo.
 
-3. Una vez en el directorio raíz del repositorio clonado, busca el archivo `package.json`. Este archivo es esencial para instalar las dependencias del proyecto.
+4. Una vez en el directorio raíz del repositorio clonado, busca el archivo `package.json`. Este archivo es esencial para instalar las dependencias del proyecto.
 
-4. En la terminal, ejecuta el siguiente comando para instalar todas las dependencias del proyecto listadas en el archivo `package.json` y resolver los problemas relacionados con las dependencias heredadas:
+5. En la terminal, ejecuta el siguiente comando para instalar todas las dependencias del proyecto listadas en el archivo `package.json` y resolver los problemas relacionados con las dependencias heredadas:
 
    ```
    npm i --legacy-peer-deps
@@ -31,7 +49,7 @@
 
    Este comando leerá el archivo `package.json`, descargará e instalará todas las dependencias necesarias, y a su vez resolverá cualquier problema relacionado con las dependencias heredadas.
 
-5. Una vez que el comando `npm i --legacy-peer-deps` haya terminado de ejecutarse, todas las dependencias del proyecto deberían estar instaladas y listas para usar.
+6. Una vez que el comando `npm i --legacy-peer-deps` haya terminado de ejecutarse, todas las dependencias del proyecto deberían estar instaladas y listas para usar.
 
 Recuerda que el uso de `--legacy-peer-deps` puede ser necesario si estás utilizando una versión de npm anterior a la 7. Si estás utilizando npm 7 o superior, este flag no será necesario.
 

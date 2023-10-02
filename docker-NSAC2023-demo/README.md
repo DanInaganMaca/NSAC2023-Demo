@@ -160,15 +160,17 @@ Para verificar que el ambiente de backend con Django ha establecido la conexión
 #### Verificar la Migración de la base de datos
 Asegurar que las migraciones de Django se hayan aplicado correctamente. Es importante haber ejecutado el comando para aplicar migraciones, así aplicará las migraciones pendientes y creará las tablas necesarias en la base de datos.
 ```
-  docker compose exec python python3 manage.py migrate
+  docker compose exec python /app/venv/bin/python manage.py migrate
 ```
-
+```
+  docker compose exec python /app/venv/bin/python manage.py makemigrations
+```
 #### Crear un Superusuario
 
 Crea un superusuario de Django para poder acceder al panel de administración y realizar pruebas. Ejecuta el siguiente comando y sigue las instrucciones:
 
 ```
-  docker-compose exec python python manage.py createsuperuser
+  docker-compose exec python /app/venv/bin/python manage.py createsuperuser
 ```
 
 Luego, abre un navegador web y accede al panel de administración de Django ingresando la dirección http://localhost:8000/admin/. Inicia sesión con el superusuario que creaste. Si puedes iniciar sesión y ver el panel de administración, significa que la conexión a la base de datos funciona correctamente.
@@ -189,5 +191,5 @@ En esta sección se registran las soluciones a los problemas que se presentan al
 * Cuando se presentan problemas al construir, iniciar o ejecutar los contenedores y estos están relacionados directamente con el contenedor `python-container`, es esencial ejecutar el comando de migración de modelos de Django, ya que al hacer modificaciones de modelo, crear modelos, instalar dependencias o cualquier otra operación se lanzaran errores inesperados. Por lo tanto, para resolver esto se suele usar el comando `python manage.py migration`, pero como estamos usando un contenedor el comando es: 
 
 ```
-  docker compose exec python python3 manage.py migrate 
+  docker compose exec python /app/venv/bin/python manage.py migrate 
 ```

@@ -162,7 +162,9 @@ Asegurar que las migraciones de Django se hayan aplicado correctamente. Es impor
 ```
   docker compose exec python /app/venv/bin/python manage.py migrate
 ```
-
+```
+  docker compose exec python /app/venv/bin/python manage.py makemigrations
+```
 #### Crear un Superusuario
 
 Crea un superusuario de Django para poder acceder al panel de administración y realizar pruebas. Ejecuta el siguiente comando y sigue las instrucciones:

@@ -1,21 +1,70 @@
-import { Button } from "antd"
-import { Link } from "react-router-dom"
+import { Button, Col, Menu, Row } from "antd";
+import { HomeFilled, AppstoreAddOutlined, SketchOutlined, BuildOutlined, TeamOutlined } from '@ant-design/icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export function Navigation() {
-  return (
-    <div className="flex justify-between py-3">
-      <Link to="/tasks">
-        <h1 className="font-bold text-3x1 mb-4">Tasks App</h1>
-      </Link>
-      <Link to="/tasks/create">
-        <Button>
-          Create task
-        </Button>
-      </Link>
+  const navigate = useNavigate();
 
-    </div>
+  return (
+    <Col span={24} style={{ maxWidth: "1920px" }}>
+      <Row justify={'space-between'}>
+        <Col span={2}>
+          <Button type="link" style={{ color: 'white' }}>
+            <SketchOutlined />
+          </Button>
+        </Col>
+        <Col span={21}>
+          <Row justify={"end"}>
+            <Menu
+              theme="dark"
+              mode={'horizontal'}
+            >
+              <Col span={24}>
+                <Row justify={"center"} align={'middle'}>
+                  <Col>
+                    <Button type="link" style={{ color: 'white' }}
+                      onClick={() => {
+                        navigate("/home");
+                      }}>
+                      <HomeFilled />
+                      Home</Button>
+                  </Col>
+                  <Col>
+                    <Button type="link" style={{ color: 'white' }} onClick={() => {
+                      navigate("/fundamentals");
+                    }}>
+                      <BuildOutlined />
+                      Fundamentals</Button>
+                  </Col>
+                  <Col>
+                    <Button type="link" style={{ color: 'white' }} onClick={() => {
+                      navigate("/imagen-spectroscopy")
+                    }}>
+                      <AppstoreAddOutlined />
+                      Imagen Spectroscopy</Button>
+                  </Col>
+                  <Col>
+                    <Button type="link" style={{ color: 'white' }} onClick={() => {
+                      navigate("/about-us");
+                    }}>
+                      <TeamOutlined />
+                      About us</Button>
+                  </Col>
+                </Row>
+              </Col>
+            </Menu>
+          </Row>
+        </Col>
+        <Col span={1} style={{ width: '100px' }}>
+          <Row justify={"end"}>
+            <a href="https://github.com/DanInaganMaca/NSAC2023-Demo" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGithub} size="2xl" />
+            </a>
+          </Row>
+        </Col>
+      </Row>
+    </Col>
   )
 }
-
-Navigation.propTypes = {}
-

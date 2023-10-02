@@ -12,7 +12,7 @@
 ## Instalar dependencias de React
 
 1. Navega hasta el directorio del proyecto de React del repositorio, es el directorio llamado `react_app`.
-
+   
 2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
 
    ```
@@ -49,23 +49,37 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    sudo apt install python3-virtualenv
    ```
 
-3. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
+3. Crea el archivo '.env': ejecuta el comando `nano .env` y guarda ahí lo siguiente:
 
    ```
-   virtualenv env
+   # .env
+
+   DEBUG=True
+   SECRET_KEY=secret
+   DB_NAME=nsac2023-demo
+   DB_USER=root
+   DB_PASSWORD=secret
+   DB_HOST=db
+   DB_PORT=5432
+   ```
+
+4. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
+
+   ```
+   virtualenv venv
    ```
 
    Esto creará un nuevo directorio llamado "env" que contendrá el entorno virtual.
 
-4. Activa el entorno virtual ejecutando el siguiente comando:
+5. Activa el entorno virtual ejecutando el siguiente comando:
 
      ```
-     source env/bin/activate
+     source venv/bin/activate
      ```
 
    Al activar el entorno virtual, el prompt de la terminal debe cambiar para indicar que estás utilizando el entorno virtual.
 
-5. Una vez dentro del entorno virtual, puedes instalar las dependencias del proyecto utilizando el gestor de paquetes `pip`. En el directorio raíz del proyecto, normalmente se encuentra un archivo `requirements.txt` que lista todas las dependencias necesarias.
+6. Una vez dentro del entorno virtual, puedes instalar las dependencias del proyecto utilizando el gestor de paquetes `pip`. En el directorio raíz del proyecto, normalmente se encuentra un archivo `requirements.txt` que lista todas las dependencias necesarias.
 
    Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
 
@@ -75,7 +89,7 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
    Esto leerá el archivo `requirements.txt` y descargará e instalará todas las dependencias necesarias en el entorno virtual.
 
-6. Una vez que todas las dependencias se hayan instalado correctamente, estamos listos para ejecutar los contenedores.
+7. Una vez que todas las dependencias se hayan instalado correctamente, estamos listos para ejecutar los contenedores.
 
 Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
 

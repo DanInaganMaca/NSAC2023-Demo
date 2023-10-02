@@ -3,7 +3,6 @@ djangorestframework
 django-cors-headers
 coreapi
 drf-yasg
-conda
 psycopg2-binary
 python-decouple
 opencv-contrib-python

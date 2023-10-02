@@ -25,8 +25,13 @@ DB_PASSWORD = config('DB_PASSWORD')
 DB_HOST = config('DB_HOST')
 DB_PORT = config('DB_PORT')
 
-ALLOWED_HOSTS = []
+# config Supabase
+SUPABASE_DB = config('SUPABASE_DB')
+SUPABASE_USER = config('SUPABASE_USER')
+SUPABASE_HOST = config('SUPABASE_HOST')
+SUPABASE_PW = config('SUPABASE_PW')
 
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -40,7 +45,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'drf_yasg',
-    'tasks'
+    'tasks',
+    'pages'
 ]
 
 MIDDLEWARE = [
@@ -79,14 +85,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'local': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': DB_NAME,
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
         'HOST': DB_HOST,
         'PORT': DB_PORT
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': SUPABASE_DB,
+        'USER': SUPABASE_USER,
+        'PASSWORD': SUPABASE_PW,
+        'HOST': SUPABASE_HOST,
+        'PORT': DB_PORT,
+        'CERT': 'config.prod-ca-2021.crt',
     }
+
 }
 
 
@@ -114,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -132,8 +148,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cors authorization
-
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+#
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',

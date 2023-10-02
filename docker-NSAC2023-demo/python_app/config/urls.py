@@ -39,5 +39,6 @@ urlpatterns = [
          cache_timeout=0), name='schema-swagger-ui'),
     path('redocs/', schema_view.with_ui('redoc',
          cache_timeout=0), name='schema-redoc'),
-    path('tasks/', include("tasks.urls")),
+    path('spectrum4bio/', include("tasks.urls")),
+    path('spectrum4bio/', include("pages.urls")),
 ]

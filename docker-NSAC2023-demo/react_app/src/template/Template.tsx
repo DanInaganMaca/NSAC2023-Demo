@@ -1,57 +1,29 @@
-import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { TasksPage } from "../pages/TasksPage";
-import { TaskFormPage } from "../pages/TaskFormPage";
-import { Toaster } from "react-hot-toast";
-import { HomePage } from "../pages/HomePage";
+import { Layout, theme } from "antd";
+import { Navigation } from "../components/Navigation";
+import { ReactNode } from "react"; // Importa ReactNode
 
 const { Header, Content, Footer } = Layout;
 
+interface TemplateProps {
+  children: ReactNode; // Define el tipo de children como ReactNode
+}
 
-export function Template() {
+export function Template({ children }: TemplateProps) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   return (
     <Layout className="layout">
-      <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(15).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
+      <Header style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Navigation />
       </Header>
-      <Content style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="site-layout-content" style={{ background: colorBgContainer }}>
-          <BrowserRouter>
-            <div className="container mx-auto">
-              <Routes>
-                <Route path="/" element={<Navigate to="/home" />}></Route>
-                <Route path="/home" element={<HomePage />}></Route>
-                <Route path="/tasks" element={<TasksPage />}></Route>
-                <Route path="/tasks/create" element={<TaskFormPage />}></Route>
-                <Route path="/tasks/:id" element={<TaskFormPage />}></Route>
-              </Routes>
-              <Toaster />
-            </div>
-          </BrowserRouter>
+      <Content style={{ display: 'flex', justifyContent: 'center', alignItems: "center" }}>
+        <div className="site-layout-content" style={{ background: colorBgContainer, width: "100%", maxWidth: "1920px" }}>
+          {children} {/* Rederizar los componentes secundarios, el contenido */}
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
-    </Layout>
+    </Layout >
   )
 }

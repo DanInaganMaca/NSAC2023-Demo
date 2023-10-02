@@ -1,9 +1,9 @@
 Django==4.1
 djangorestframework
 django-cors-headers
+supabase-py
 coreapi
 drf-yasg
-conda
 psycopg2-binary
 python-decouple
 opencv-contrib-python

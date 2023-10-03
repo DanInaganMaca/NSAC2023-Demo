@@ -1,8 +1,10 @@
 import axios from "axios"
 import { environment } from "../environments/environment.dev";
 
+const endpoint: string = environment.backendUrl;
+
 const tasksApi = axios.create({
-  baseURL: `${environment}/tasks`
+  baseURL: `${endpoint}/tasks`
 });
 
 export const getAllTasks = () => tasksApi.get("/");

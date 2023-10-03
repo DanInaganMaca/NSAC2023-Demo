@@ -44,16 +44,14 @@ const textStyle: React.CSSProperties = {
 
 const imgStyle: React.CSSProperties = {
   width: "100%",
-  height: "1080px",
+  height: "100%",
+  objectFit: "cover",
 };
 
 export function ImageCarousel() {
-  const onChange = (currentSlide: number) => {
-    console.log(currentSlide);
-  }
 
   return (
-    <Carousel afterChange={onChange} autoplay style={{ width: "100%", height: "fit-content", justifyContent: "center" }}>
+    <Carousel autoplay style={{ width: "100%", height: "fit-content", justifyContent: "center" }}>
       {imagesCarousel.map((imagen: ImagenCarousel) => {
         return (
           <Col key={imagen.id} span={24}>

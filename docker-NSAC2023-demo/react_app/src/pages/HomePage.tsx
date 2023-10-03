@@ -1,5 +1,5 @@
+import { ContentPage } from "../components/ContentPage";
 import { ImageCarousel } from "../components/ImageCarousel";
-import { TasksList } from "../components/TasksList";
 
 
 export function HomePage() {
@@ -7,7 +7,7 @@ export function HomePage() {
   return (
     <>
       <ImageCarousel />
-      <TasksList />
+      <ContentPage key={'home'} code={'home'} />
     </>
   )
 }

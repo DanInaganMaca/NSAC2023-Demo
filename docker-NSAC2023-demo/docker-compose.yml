@@ -34,7 +34,7 @@ services:
       - nsac2023
     depends_on:
       - db
-    command: ["./wait-for-it.sh", "db:5432", "--", "/app/venv/bin/python", "manage.py", "runserver", "0.0.0.0:8000"]
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"]
 
   react:
     build:

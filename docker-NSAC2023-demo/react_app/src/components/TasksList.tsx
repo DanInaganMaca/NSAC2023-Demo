@@ -11,8 +11,6 @@ export function TasksList() {
     const loadTasks = async () => {
       const res = await getAllTasks();
       setTasks(res.data);
-      console.log(tasks);
-
     }
     loadTasks();
   }, [])

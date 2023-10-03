@@ -1,5 +1,7 @@
+import { ContentPage } from "../components/ContentPage";
+
 export function FundamentalsPage() {
   return (
-    <div>FundamentalsPage</div>
+    <ContentPage key={'fundamentals'} code={'fundamentals'} />
   )
 }

@@ -1,16 +1,18 @@
 import axios from "axios"
 import { environment } from "../environments/environment.dev";
 
-const tasksApi = axios.create({
-  baseURL: `${environment.backendUrl}/pages`
+const endpoint: string = environment.backendUrl;
+
+const pagesApi = axios.create({
+  baseURL: `${endpoint}/pages`
 });
 
-export const getAllTasks = () => tasksApi.get("/");
+export const getAll = () => pagesApi.get("/");
 
-export const getTask = (id: unknown) => tasksApi.get(`/${id}`);
+export const getOne = (code: unknown) => pagesApi.get(`/by_code/${code}`);
 
-export const createTask = (task: unknown) => tasksApi.post("/", task);
+export const create = (page: unknown) => pagesApi.post("/", page);
 
-export const deleteTask = (id: unknown) => tasksApi.delete(`/${id}`);
+export const remove = (id: unknown) => pagesApi.delete(`/${id}`);
 
-export const updateTask = (id: unknown, task: unknown) => tasksApi.put(`/${id}/`, task);
+export const update = (id: unknown, page: unknown) => pagesApi.put(`/${id}/`, page);

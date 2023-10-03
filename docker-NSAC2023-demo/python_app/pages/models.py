@@ -6,11 +6,13 @@ from django.db import models
 
 class Page(models.Model):
     title = models.CharField(max_length=50, null=False)
+    code = models.CharField(max_length=50, unique=True,
+                            null=False, default="code")
     name_tab = models.CharField(max_length=50, null=False)
-    create_at = models.DateField(null=False, default=timezone.now)
+    create_at = models.DateTimeField(null=False, default=timezone.now)
 
     def __str__(self):
-        return self.title
+        return self.code
 
     def save(self, *args, **kwargs):
         if not self.create_at:
@@ -19,6 +21,8 @@ class Page(models.Model):
 
 
 class ContentType(models.Model):
+    code = models.CharField(max_length=50, null=False,
+                            unique=True, default="code")
     name = models.CharField(max_length=50, null=False)
     create_at = models.DateField(null=False, default=timezone.now)
 
@@ -34,11 +38,11 @@ class ContentType(models.Model):
 class Content(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50, null=False)
-    description = models.TextField(null=True)
-    image_url = models.TextField(null=True)
-    video_url = models.TextField(null=True)
-    theme = models.IntegerField(null=False)
+    title = models.CharField(max_length=50, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    image_url = models.TextField(null=True, blank=True)
+    video_url = models.TextField(null=True, blank=True)
+    theme = models.IntegerField(null=False, default=1)
     create_at = models.DateField(null=False, default=timezone.now)
 
     def __str__(self):

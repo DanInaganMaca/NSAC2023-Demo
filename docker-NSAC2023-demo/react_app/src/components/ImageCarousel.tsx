@@ -44,7 +44,7 @@ const textStyle: React.CSSProperties = {
 
 const imgStyle: React.CSSProperties = {
   width: "100%",
-  height: "100vh",
+  height: "1080px",
 };
 
 export function ImageCarousel() {

@@ -1,5 +1,7 @@
+import { ContentPage } from "../components/ContentPage";
+
 export function AboutUsPage() {
   return (
-    <div>AboutUsPage</div>
+    <ContentPage key={'about-us'} code={'about-us'} />
   )
 }

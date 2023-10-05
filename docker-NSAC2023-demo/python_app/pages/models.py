@@ -38,7 +38,7 @@ class ContentType(models.Model):
 class Content(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50, null=True, blank=True)
+    title = models.CharField(max_length=50, null=False, default="content")
     description = models.TextField(null=True, blank=True)
     image_url = models.TextField(null=True, blank=True)
     video_url = models.TextField(null=True, blank=True)

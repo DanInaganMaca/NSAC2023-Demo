@@ -1,6 +1,7 @@
 import { Layout, theme } from "antd";
 import { Navigation } from "../components/Navigation";
 import { ReactNode } from "react"; // Importa ReactNode
+import { Bottom } from "../components/Bottom";
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,7 +24,11 @@ export function Template({ children }: TemplateProps) {
           {children} {/* Rederizar los componentes secundarios, el contenido */}
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+      <Footer style={{ backgroundColor: "#001529", color: "white" }}>
+        <div>
+          <Bottom />
+        </div>
+      </Footer>
     </Layout >
   )
 }

@@ -218,32 +218,33 @@ Debería mostrarse la versión instalada de Python 3.
 
 ## Install Conda
 
-1. Download the latest Miniconda installer script for 64-bit Linux using wget: ```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-```
+1. Download the latest Miniconda installer script for 64-bit Linux using wget:
+   ```
+      wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   ```
 
 2. Make the installer script executable:
-```
-chmod +x Miniconda3-latest-Linux-x86_64.sh
-```
+   ```
+      chmod +x Miniconda3-latest-Linux-x86_64.sh
+   ```
 
 3. Run the Miniconda installer script:
-```
-./Miniconda3-latest-Linux-x86_64.sh
-```
-Follow the on-screen instructions to complete the installation. You'll be prompted to review the license agreement (press ENTER to scroll through), accept the terms by typing yes, and choose the installation location (the default is usually fine).
+   ```
+      ./Miniconda3-latest-Linux-x86_64.sh
+   ```
+   Follow the on-screen instructions to complete the installation. You'll be prompted to review the license agreement (press ENTER to scroll through), accept the terms by typing yes, and choose the installation location (the default is usually fine).
 
 4. After the installation is complete, you'll be asked if you want to initialize Miniconda. It's recommended to answer 'yes' to this option. This will add Conda to your shell configuration, allowing you to use it in your terminal.
 
 5. To activate the changes in your current terminal session, use:
-```
-source ~/.bashrc
-```
+   ```
+      source ~/.bashrc
+   ```
 
 6. Verify that Conda has been successfully installed by checking the version:
-```
-conda --version
-```
+   ```
+      conda --version
+   ```
 
 --- 
 

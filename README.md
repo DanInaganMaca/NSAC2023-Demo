@@ -29,31 +29,40 @@ sudo apt install git openssh-server
 ----
 ## Establecer conexión con GitHub a través de SSH
 
+   ```
+   cd
+   cd .ssh/
+   ```
+
 1. Genera una nueva clave SSH en tu máquina local, si aún no tienes una. Puedes usar el siguiente comando en tu terminal:
    ```
-   ssh-keygen -t rsa -b 4096 -C "tu_email@example.com"
+   ssh-keygen -t ed25519 -b 4096 -C "{yourusername@emaildomain.com}" -f {ssh-key-name}
    ```
+   {username@emaildomain.com} is the email address associated with the Bitbucket Cloud account, such as your work email account.
+   {ssh-key-name} is the output filename for the keys. We recommend using a identifiable name such as bitbucket_work.
 
-2. Sigue las instrucciones para guardar la clave en la ubicación predeterminada (`~/.ssh/id_rsa`) o elige una ruta personalizada.
+2. Agrega una contraseña. 
 
-3. Abre el archivo de clave pública para copiar su contenido. Puedes usar el siguiente comando para abrir el archivo en el terminal:
+3. Add the ssh key to your local and copy the .pud
    ```
-   cat ~/.ssh/id_rsa.pub
+   ssh-add {ssh-key-name}
    ```
+   ```
+   cat {ssh-key-name}.pub
+   ```
+5. Copia la salida completa del comando anterior.
 
-4. Copia la salida completa del comando anterior.
+6. Inicia sesión en tu cuenta de GitHub y haz clic en tu foto de perfil en la esquina superior derecha de la pantalla. Luego, selecciona "Settings" en el menú desplegable.
 
-5. Inicia sesión en tu cuenta de GitHub y haz clic en tu foto de perfil en la esquina superior derecha de la pantalla. Luego, selecciona "Settings" en el menú desplegable.
+7. En la barra lateral izquierda, haz clic en "SSH and GPG keys".
 
-6. En la barra lateral izquierda, haz clic en "SSH and GPG keys".
+8. Haz clic en "New SSH key" o "Add SSH key".
 
-7. Haz clic en "New SSH key" o "Add SSH key".
+9. Proporciona un título descriptivo para tu clave SSH en el campo "Title".
 
-8. Proporciona un título descriptivo para tu clave SSH en el campo "Title".
+10. Pega tu clave pública en el campo "Key".
 
-9. Pega tu clave pública en el campo "Key".
-
-10. Haz clic en "Add SSH key" para guardar y agregar la clave a tu cuenta de GitHub.
+11. Haz clic en "Add SSH key" para guardar y agregar la clave a tu cuenta de GitHub.
 
 ¡Eso es todo! Ahora has conectado con éxito GitHub a través de SSH. Puedes probar la conexión usando el siguiente comando en la terminal:
 ```
@@ -206,6 +215,37 @@ Debería mostrarse la versión instalada de Python 3.
 ¡Y eso es todo! Has instalado Python 3 en tu sistema.
 
 ---
+
+## Install Conda
+
+1. Download the latest Miniconda installer script for 64-bit Linux using wget: ```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+2. Make the installer script executable:
+```
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+```
+
+3. Run the Miniconda installer script:
+```
+./Miniconda3-latest-Linux-x86_64.sh
+```
+Follow the on-screen instructions to complete the installation. You'll be prompted to review the license agreement (press ENTER to scroll through), accept the terms by typing yes, and choose the installation location (the default is usually fine).
+
+4. After the installation is complete, you'll be asked if you want to initialize Miniconda. It's recommended to answer 'yes' to this option. This will add Conda to your shell configuration, allowing you to use it in your terminal.
+
+5. To activate the changes in your current terminal session, use:
+```
+source ~/.bashrc
+```
+
+6. Verify that Conda has been successfully installed by checking the version:
+```
+conda --version
+```
+
+--- 
 
 ## Continua con la guía para ejecutar el ambiente de desarrollo
 

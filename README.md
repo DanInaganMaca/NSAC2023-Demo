@@ -23,6 +23,11 @@ Realizar estas tareas previas garantizará que tu ambiente de desarrollo esté c
 Las siguientes herramientas también deben estar instaladas en el sistema operativo: `git` y `ssh`. El comando para instalarlo es el siguiente:
 
 ```
+sudo apt-get update
+sudo apt-get upgrade -y
+```
+
+```
 sudo apt install git openssh-server
 ```
 
@@ -38,12 +43,12 @@ sudo apt install git openssh-server
    ```
    ssh-keygen -t ed25519 -b 4096 -C "{yourusername@emaildomain.com}" -f {ssh-key-name}
    ```
-   {username@emaildomain.com} is the email address associated with the Bitbucket Cloud account, such as your work email account.
-   {ssh-key-name} is the output filename for the keys. We recommend using a identifiable name such as bitbucket_work.
+   {username@emaildomain.com} is the email address associated with the GitHUb Cloud account, such as your work email account.
+   {ssh-key-name} is the output filename for the keys. We recommend using a identifiable name such as 'ssh-key-nsac2023'.
 
 2. Agrega una contraseña. 
 
-3. Add the ssh key to your local and copy the .pud
+3. Add the ssh key to your local and copy the .pub
    ```
    ssh-add {ssh-key-name}
    ```
@@ -106,8 +111,10 @@ git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
 ## Instalar Docker en Linux
 
 1. Actualiza los paquetes existentes en tu sistema ejecutando el siguiente comando en la terminal:
+
    ```
-   sudo apt update
+      sudo apt-get update
+      sudo apt-get upgrade -y
    ```
 
 2. Instala los paquetes necesarios para permitir que apt utilice repositorios a través de HTTPS:
@@ -127,7 +134,8 @@ git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
 
 5. Actualiza los paquetes nuevamente para incluir el repositorio de Docker:
    ```
-   sudo apt update
+      sudo apt-get update
+      sudo apt-get upgrade -y
    ```
 
 6. Instala Docker usando el siguiente comando:
@@ -231,6 +239,8 @@ Debería mostrarse la versión instalada de Python 3.
 
 1. Download the latest Miniconda installer script for 64-bit Linux using wget:
    ```
+      cd
+      cd Downloads/ 
       wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
    ```
 

@@ -80,6 +80,10 @@ Ya que se ha establecido la conexión con GitHub a través de SSH, puedes proced
 3. Una vez en el directorio adecuado, utiliza el siguiente comando para clonar el repositorio:
 
 ```
+cd
+cd Documents/
+```
+```
 git clone git@github.com:DanInaganMaca/NSAC2023-Demo.git
 ```
 
@@ -89,6 +93,11 @@ git clone git@github.com:DanInaganMaca/NSAC2023-Demo.git
 
 **Nota:** si se va a visualizar el repositorio como no colaborador/developer utilizar el siguiente comando:
 
+
+```
+cd
+cd Documents/
+```
 ```
 git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
 ```
@@ -173,7 +182,9 @@ El archivo .nvmrc permite especificar una versión específica de Node.js para u
 1. Dirígete al directorio del ambiente de frontend de React, el cual se encuentra en la siguiente ruta:
 
 ```
-  cd ./docker-NSAC2023-demo/react_app
+   cd
+   cd Documents/
+   cd NSAC2023-demo/docker-NSAC2023-demo/react_app
 ```
 
 2. Ejecuta el siguiente comando para dejar que nvm seleccione y establezca la versión específica de Node.js:

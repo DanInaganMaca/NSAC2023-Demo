@@ -133,6 +133,11 @@ Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
    ```
    conda env update -f environment.yml
    ```
+
+5. Install python dependences
+   ```
+   pip install -r requirements.txt
+   ```
    ```
    exit
    ```

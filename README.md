@@ -184,7 +184,7 @@ El archivo .nvmrc permite especificar una versión específica de Node.js para u
 ```
    cd
    cd Documents/
-   cd NSAC2023-demo/docker-NSAC2023-demo/react_app
+   cd NSAC2023-Demo/docker-NSAC2023-demo/react_app/
 ```
 
 2. Ejecuta el siguiente comando para dejar que nvm seleccione y establezca la versión específica de Node.js:

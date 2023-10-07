@@ -133,6 +133,9 @@ Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
    ```
    conda env update -f environment.yml
    ```
+   ```
+   exit
+   ```
 
 ## Ejecutar Docker compose
 

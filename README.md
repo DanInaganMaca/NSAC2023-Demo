@@ -1,4 +1,4 @@
-# Development environment for the NSAC2023-Demo project
+# Part I: Development environment for the NSAC2023-Demo project
 
 Before starting to install the development environment, it is important to perform some preliminary tasks. These tasks include establishing the GitHub connection via SSH, as well as installing Docker, nvm, and Python 3.
 
@@ -261,6 +261,7 @@ And that's it! You have installed Python 3 on your system.
 
 --- 
 
+# Part II: 
 ## Continue with the guide to run the development environment
 
 Once all the necessary tools are installed on your system, it is time to run the development environment. The steps to run the environment are found in the following guide:

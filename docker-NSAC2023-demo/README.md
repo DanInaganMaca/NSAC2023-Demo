@@ -12,14 +12,13 @@
 ## Instalar dependencias de React
 
 1. Navega hasta el directorio del proyecto de React del repositorio, es el directorio llamado `react_app`.
-   
-2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
-
    ```
    cd
    cd Documents/
    cd NSAC2023-Demo/docker-NSAC2023-demo/react_app/
    ```
+     
+2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
    ```
    nvm use
    ```
@@ -48,13 +47,14 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
 1. Navega hasta el directorio del proyecto de Python, es el directorio llamado `python_app`.
 
-2. Para gestionar las dependencias de Python, es recomendable utilizar un entorno virtual. Esto te permite aislar las dependencias del proyecto del resto del sistema. Si no tienes instalado `virtualenv`, puedes instalarlo ejecutando el siguiente comando:
-
    ```
    cd
    cd Documents/
    cd NSAC2023-Demo/docker-NSAC2023-demo/python_app/
    ```
+
+2. Para gestionar las dependencias de Python, es recomendable utilizar un entorno virtual. Esto te permite aislar las dependencias del proyecto del resto del sistema. Si no tienes instalado `virtualenv`, puedes instalarlo ejecutando el siguiente comando:
+
    ```
    sudo apt install python3-virtualenv
    ```
@@ -127,7 +127,7 @@ Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
    
 2. Activate conda environment
    ```
-   cat env   
+   conda activate ./venv
    ```
 4. Install the dependences 
    ```

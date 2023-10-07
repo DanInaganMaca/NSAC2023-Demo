@@ -1,51 +1,49 @@
-# Ejecutar ambiente de desarrollo
+# Part II: Run development environment
 
-1. [Instalar dependencias de React](#instalar-dependencias-de-react)
-2. [Instalar dependencias de Python](#instalar-dependencias-de-python)
-3. [Ejecutar Docker compose](#ejecutar-docker-compose)
-4. [Pruebas de funcionamiento](#pruebas-de-funcionamiento)  
-4.1 [Comunicación entre Backend Django y DB Postgresql](#comunicación-entre-backend-django-y-db-postgresql)
-5. [Solución de problemas](#solución-de-problemas)
+1. [Install React Dependencies](#install-react-dependencies)
+2. [Install Python dependencies](#install-python-dependencies)
+3. [Run Docker compose](#run-docker-compose)
+4. [Performance tests](#performance-tests)
+4.1 [Communication between Backend Django and DB Postgresql](#communication-between-backend-django-and-db-postgresql)
+5. [Troubleshooting](#troubleshooting)
 
 ---
+## Install React dependencies
 
-## Instalar dependencias de React
-
-1. Navega hasta el directorio del proyecto de React del repositorio, es el directorio llamado `react_app`.
+1. Navigate to the React project directory of the repository, it is the directory called `react_app`.
    ```
    cd
    cd Documents/
    cd NSAC2023-Demo/docker-NSAC2023-demo/react_app/
    ```
-     
-2. Utiliza nvm para obtener la versión de Node.js necesaria para el proyecto:
+   
+2. Use nvm to get the Node.js version needed for the project:
    ```
    nvm use
    ```
 
-   Si obtienes la versión correspondiente, puedes pasar al siguiente paso. Si no, vuelve a la guía del ambiente de desarrollo.
+If you get the corresponding version, you can proceed to the next step. If not, return to the development environment guide.
 
-4. Una vez en el directorio raíz del repositorio clonado, busca el archivo `package.json`. Este archivo es esencial para instalar las dependencias del proyecto.
+4. Once in the root directory of the cloned repository, look for the `package.json` file. This file is essential to install the project dependencies.
 
-5. En la terminal, ejecuta el siguiente comando para instalar todas las dependencias del proyecto listadas en el archivo `package.json` y resolver los problemas relacionados con las dependencias heredadas:
-
+5. In the terminal, run the following command to install all project dependencies listed in the `package.json` file and resolve issues related to inherited dependencies:
    ```
    npm i --legacy-peer-deps
    ```
 
-   Este comando leerá el archivo `package.json`, descargará e instalará todas las dependencias necesarias, y a su vez resolverá cualquier problema relacionado con las dependencias heredadas.
+This command will read the `package.json` file, download and install all necessary dependencies, and in turn resolve any issues related to inherited dependencies.
 
-6. Una vez que el comando `npm i --legacy-peer-deps` haya terminado de ejecutarse, todas las dependencias del proyecto deberían estar instaladas y listas para usar.
+6. Once the `npm i --legacy-peer-deps` command has finished running, all project dependencies should be installed and ready to use.
 
-Recuerda que el uso de `--legacy-peer-deps` puede ser necesario si estás utilizando una versión de npm anterior a la 7. Si estás utilizando npm 7 o superior, este flag no será necesario.
+Remember that using `--legacy-peer-deps` may be necessary if you are using a version of npm earlier than 7. If you are using npm 7 or higher, this flag will not be necessary.
 
-El archivo `package.json` es una referencia para las dependencias del proyecto, por lo que es importante mantenerlo actualizado según las necesidades del proyecto. Si se agregan o eliminan dependencias, debes ejecutar nuevamente el comando `npm i --legacy-peer-deps` para tener las dependencias actualizadas.
+The `package.json` file is a reference for the project's dependencies, so it is important to keep it updated according to the needs of the project. If dependencies are added or removed, you must run the `npm i --legacy-peer-deps` command again to have the dependencies updated.
 
-¡Y eso es todo! Has instalado las dependencias del ambiente frontend.
+And that's it! You have installed the frontend environment dependencies.
 
-## Instalar dependencias de Python
+## Install Python dependencies
 
-1. Navega hasta el directorio del proyecto de Python, es el directorio llamado `python_app`.
+1. Navigate to the Python project directory, it is the directory called `python_app`.
 
    ```
    cd
@@ -53,17 +51,16 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    cd NSAC2023-Demo/docker-NSAC2023-demo/python_app/
    ```
 
-2. Para gestionar las dependencias de Python, es recomendable utilizar un entorno virtual. Esto te permite aislar las dependencias del proyecto del resto del sistema. Si no tienes instalado `virtualenv`, puedes instalarlo ejecutando el siguiente comando:
-
+2. To manage Python dependencies, it is recommended to use a virtual environment. This allows you to isolate the project's dependencies from the rest of the system. If you do not have `virtualenv` installed, you can install it by running the following command:
    ```
    sudo apt install python3-virtualenv
    ```
 
-3. Crea el archivo '.env': ejecuta el comando `nano .env` y guarda ahí lo siguiente:
+3. Create the '.env' file: run the command `nano .env` and save the following there:
    ```
    nano .env
    ```
-   Copy in that file the next and save
+   Copy in that file the next, and save
    ```
    # .env
 
@@ -80,25 +77,23 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    cat .env
    ```
    
-4. Una vez instalado `virtualenv`, crea un nuevo entorno virtual ejecutando el siguiente comando en la terminal:
-
+4. Once `virtualenv` is installed, create a new virtual environment by running the following command in the terminal:
    ```
    virtualenv venv
    ```
 
-   Esto creará un nuevo directorio llamado "env" que contendrá el entorno virtual.
+This will create a new directory called "env" that will contain the virtual environment.
 
-5. Activa el entorno virtual ejecutando el siguiente comando:
-
+5. Activate the virtual environment by running the following command:
      ```
      source venv/bin/activate
      ```
 
-   Al activar el entorno virtual, el prompt de la terminal debe cambiar para indicar que estás utilizando el entorno virtual.
+When you activate the virtual environment, the terminal prompt should change to indicate that you are using the virtual environment.
 
-6. Una vez dentro del entorno virtual, puedes instalar las dependencias del proyecto utilizando el gestor de paquetes `pip`. En el directorio raíz del proyecto, normalmente se encuentra un archivo `requirements.txt` que lista todas las dependencias necesarias.
+6. Once inside the virtual environment, you can install the project dependencies using the `pip` package manager. In the root directory of the project, there is usually a `requirements.txt` file that lists all the necessary dependencies.
 
-   Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
+    Run the following command to install all project dependencies:
 
    ```
    pip install -r requirements.txt
@@ -107,14 +102,13 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    exit
    ```
 
-   Esto leerá el archivo `requirements.txt` y descargará e instalará todas las dependencias necesarias en el entorno virtual.
+This will read the `requirements.txt` file and download and install all necessary dependencies into the virtual environment.
 
-7. Una vez que todas las dependencias se hayan instalado correctamente, estamos listos para ejecutar los contenedores.
+7. Once all the dependencies have been installed successfully, we are ready to run the containers.
 
-Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
+And that's it. You have now installed the backend environment dependencies.
 
-## Install Conda Dependences 
-
+## Install Conda Dependencies
    ```
    cd
    cd Documents/
@@ -142,9 +136,9 @@ Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
    exit
    ```
 
-## Ejecutar Docker compose
+## Run Docker compose
 
-1. Asegúrate de tener Docker y Docker Compose instalados en tu sistema. Puedes verificarlo ejecutando los siguientes comandos en la terminal:
+1. Make sure you have Docker and Docker Compose installed on your system. You can verify it by running the following commands in the terminal:
    ```
    cd
    cd Documents/
@@ -154,95 +148,90 @@ Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
    docker --version
    ```
 
-   Si obtienes las versiones correspondientes, puedes pasar al siguiente paso. Si no, vuelve a la guía del ambiente de desarrollo.
+If you get the corresponding versions, you can proceed to the next step. If not, return to the development environment guide.
 
-2. Navega hasta el directorio donde se encuentra el archivo `docker-compose.yml`, se encuentra en el directorio `docker-NSAC2023-demo`. Este archivo es esencial para describir y configurar los servicios que serán ejecutados dentro de los contenedores de Docker.
+2. Navigate to the directory where the `docker-compose.yml` file is located, it is located in the `docker-NSAC2023-demo` directory. This file is essential to describe and configure the services that will be run inside Docker containers.
 
-3. Antes de ejecutar los contenedores, es necesario construir las imágenes Docker si aún no están construidas. Para ello, ejecuta el siguiente comando en la terminal:
+3. Before running the containers, you need to build the Docker images if they are not already built. To do this, run the following command in the terminal:
 
    ```
    docker compose build
    ```
 
-   Esto leerá el archivo `docker-compose.yml` y construirá las imágenes Docker necesarias para los servicios especificados en el archivo. Este paso es necesario solo en la primera ejecución o cuando se realicen cambios en las imágenes o en los archivos de construcción.
+This will read the `docker-compose.yml` file and build the necessary Docker images for the services specified in the file. This step is required only on the first run or when changes are made to images or build files.
 
-4. Una vez que las imágenes están construidas, puedes ejecutar los contenedores utilizando el siguiente comando en la terminal:
-
+4. Once the images are built, you can run the containers using the following command in the terminal:
    ```
    docker compose up
    ```
 
-   Este comando leerá el archivo `docker-compose.yml` y comenzará a crear y ejecutar los contenedores de cada servicio especificado en el archivo. Verás la salida de registro de cada contenedor en la terminal.
+This command will read the `docker-compose.yml` file and start creating and running containers for each service specified in the file. You will see the log output of each container in the terminal.
 
-   Si deseas ejecutar los contenedores en segundo plano (detached mode), puedes agregar la bandera `-d` al comando:
-
+    If you want to run the containers in the background (detached mode), you can add the `-d` flag to the command:
    ```
    docker compose up -d
    ```
+5. Once all containers are up and running, you will have access to the services defined in `docker-compose.yml`.
 
-5. Una vez que todos los contenedores estén en funcionamiento, tendrás acceso a los servicios definidos en `docker-compose.yml`.
-
-**Recomendación:** Recomiendo que después de ejecutar los contenedores y si fue a través del comando para ejecutar en segundo plano tener presente el siguiente comando para observar el registro de los servicios de la aplicación:
+**Recommendation:** I recommend that after running the containers and if it was through the command to run in the background, keep the following command in mind to observe the registration of the application services:
 
 ```
   docker compose logs -f
 ```
 
-  Para salir de la vista de logs pulsa `Ctrl+c`.
+To exit the log view press `Ctrl+c`.
 
-6. Para detener y eliminar los contenedores, puedes ejecutar el siguiente comando en la misma terminal:
-
+6. To stop and remove the containers, you can run the following command in the same terminal:
    ```
    docker compose down
    ```
 
-   Esto detendrá y eliminará todos los contenedores creados por `docker-compose`.
+This will stop and remove all containers created by `docker-compose`.
 
-Recuerda que debes ejecutar el comando `docker-compose build` la primera vez que ejecutes los contenedores o cada vez que realices cambios en las imágenes o en los archivos de construcción, y luego puedes utilizar `docker-compose up` para iniciar los contenedores.
+Remember to run the `docker-compose build` command the first time you run containers or each time you make changes to images or build files, and then you can use `docker-compose up` to start the containers.
 
-¡Y eso es todo! Has ejecutado `docker-compose` correctamente, construido los contenedores cuando es necesario y estás utilizando los servicios definidos en el archivo `docker-compose.yml`.
+And that's it! You have run `docker-compose` successfully, built containers when necessary, and are using the services defined in the `docker-compose.yml` file.
 
-## Pruebas de funcionamiento
+## Funcionality test
 
-En esta sección se registran todas las pruebas de funcionamiento para saber si el ambiente de desarrollo quedo instalado correctamente.
+In this section all functional tests are recorded to know if the development environment was installed correctly.
 
-### Comunicación entre Backend Django y DB Postgresql
+### Communication between Django Backend and Postgresql DB
 
-Para verificar que el ambiente de backend con Django ha establecido la conexión correctamente con la base de datos Postgresql en el contenedor de Docker, se puede realizar las siguientes pruebas de funcionamiento. 
+To verify that the Django backend environment has established the connection correctly with the Postgresql database in the Docker container, the following functional tests can be performed.
 
-#### Verificar la Migración de la base de datos
-Asegurar que las migraciones de Django se hayan aplicado correctamente. Es importante haber ejecutado el comando para aplicar migraciones, así aplicará las migraciones pendientes y creará las tablas necesarias en la base de datos.
+#### Verify Database Migration
+Ensure that Django migrations have been applied correctly. It is important to have executed the command to apply migrations, so it will apply the pending migrations and create the necessary tables in the database.
 ```
   docker compose exec python /app/venv/bin/python manage.py migrate
 ```
 ```
   docker compose exec python /app/venv/bin/python manage.py makemigrations
 ```
-#### Crear un Superusuario
+#### Create a Super User
 
-Crea un superusuario de Django para poder acceder al panel de administración y realizar pruebas. Ejecuta el siguiente comando y sigue las instrucciones:
+Create a Django superuser to be able to access the admin panel and run tests. Run the following command and follow the instructions:
 
 ```
   docker-compose exec python /app/venv/bin/python manage.py createsuperuser
 ```
 
-Luego, abre un navegador web y accede al panel de administración de Django ingresando la dirección http://localhost:8000/admin/. Inicia sesión con el superusuario que creaste. Si puedes iniciar sesión y ver el panel de administración, significa que la conexión a la base de datos funciona correctamente.
+Next, open a web browser and access the Django admin panel by entering the address http://localhost:8000/admin/. Sign in with the superuser you created. If you can log in and see the administration panel, it means that the database connection is working correctly.
 
-**Verificar el registro en la Base de Datos:** Puedes verificar el registro de datos directamente en la base de datos PostgreSQL. Para hacerlo, puedes usar una herramienta de administración de bases de datos como pgAdmin, DBeaver o conectarte a la base de datos desde la línea de comandos en el contenedor de Python utilizando psql. Por ejemplo:
+**Verify the record in the Database:** You can verify the data record directly in the PostgreSQL database. To do this, you can use a database administration tool like pgAdmin, DBeaver or connect to the database from the command line in the Python container using psql. For example:
 
 ```
   docker-compose exec db psql -U root -d nsac2023-demo
 
 ```
 
-## Solución de problemas
+## Troubleshooting
 
-En esta sección se registran las soluciones a los problemas que se presentan al momento de ejecutar la construcción de las imágenes de los contenedores y cuando se están ejecutando los contenedores.
+This section records solutions to problems that arise when building container images and when containers are running.
 
-* Proteger la información sensible de la base de datos en un proyecto es una práctica importante para mantener la seguridad de los datos. Por ello, al ejecutar los contenedores con el comando `docker compose up` lanza una excepción en el contenedor `python-container`, el cual es sobre una conexión rehusada. Para resolverlo se debe crear un archivo dentro del directorio `python_app` llamado `.env` allí poner las credenciales de la base de datos. Dichas credenciales solicitarlas por interno. 
+* Protecting sensitive database information in a project is an important practice to maintain data security. Therefore, when running the containers with the `docker compose up` command it throws an exception in the `python-container` container, which is about a refused connection. To solve it, you must create a file inside the `python_app` directory called `.env` and put the database credentials there. Request these credentials internally.
 
-* Cuando se presentan problemas al construir, iniciar o ejecutar los contenedores y estos están relacionados directamente con el contenedor `python-container`, es esencial ejecutar el comando de migración de modelos de Django, ya que al hacer modificaciones de modelo, crear modelos, instalar dependencias o cualquier otra operación se lanzaran errores inesperados. Por lo tanto, para resolver esto se suele usar el comando `python manage.py migration`, pero como estamos usando un contenedor el comando es: 
-
+* When problems occur when building, starting or running containers and these are directly related to the `python-container` container, it is essential to run the Django model migration command, since when making model modifications, creating models, installing dependencies or any other operation will throw unexpected errors. Therefore, to solve this the command `python manage.py migration` is usually used, but since we are using a container the command is:
 ```
   docker compose exec python /app/venv/bin/python manage.py migrate 
 ```

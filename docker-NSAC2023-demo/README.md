@@ -50,7 +50,6 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
 2. Para gestionar las dependencias de Python, es recomendable utilizar un entorno virtual. Esto te permite aislar las dependencias del proyecto del resto del sistema. Si no tienes instalado `virtualenv`, puedes instalarlo ejecutando el siguiente comando:
 
-
    ```
    cd
    cd Documents/
@@ -104,6 +103,9 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
    ```
    pip install -r requirements.txt
    ```
+   ```
+   exit
+   ```
 
    Esto leerá el archivo `requirements.txt` y descargará e instalará todas las dependencias necesarias en el entorno virtual.
 
@@ -111,10 +113,35 @@ El archivo `package.json` es una referencia para las dependencias del proyecto, 
 
 Y eso es todo. Ahora has instalado las dependencias del ambiente backend.
 
+## Install Conda Dependences 
+
+   ```
+   cd
+   cd Documents/
+   cd NSAC2023-Demo/docker-NSAC2023-demo/python_app/
+   ```
+1. Create a conda virtual environment
+   ```
+   conda env create -p ./venv -f environment.yml
+   ```
+   
+2. Activate conda environment
+   ```
+   cat env   
+   ```
+4. Install the dependences 
+   ```
+   conda env update -f environment.yml
+   ```
+
 ## Ejecutar Docker compose
 
 1. Asegúrate de tener Docker y Docker Compose instalados en tu sistema. Puedes verificarlo ejecutando los siguientes comandos en la terminal:
-
+   ```
+   cd
+   cd Documents/
+   cd NSAC2023-Demo/docker-NSAC2023-demo/
+   ```
    ```
    docker --version
    ```

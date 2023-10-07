@@ -1,5 +1,6 @@
 # Part I: Development environment for the NSAC2023-Demo project
 
+
 Before starting to install the development environment, it is important to perform some preliminary tasks. These tasks include establishing the GitHub connection via SSH, as well as installing Docker, nvm, and Python 3.
 
 Connecting to GitHub via SSH allows secure communication between your local machine and the GitHub server. This is necessary to clone and manage the repository securely.
@@ -19,6 +20,14 @@ Performing these preliminary tasks will ensure that your development environment
 3.1 [nvm installation](#nvm-installation)
 3.2 [Use of .nvmrc file](#use-of-nvmrcy-file)
 4. [Install Python 3](#install-python-3)
+
+## Install GNU Linux Ubuntu in a Virtual Machine 
+
+You can see this tutorial to install Ubuntu in a Virtual Machine
+
+(YouTube Tutorial)[https://www.youtube.com/watch?v=rJ9ysibH768]
+
+## Install Git and SSH 
 
 The following tools must also be installed on the operating system: `git` and `ssh`. The command to install it is the following:
 

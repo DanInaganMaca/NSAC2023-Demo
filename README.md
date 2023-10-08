@@ -1,218 +1,238 @@
-# Ambiente de desarrollo para el proyecto NSAC2023-Demo
+# Part I: Development environment for the NSAC2023-Demo project
 
-Antes de comenzar a instalar el ambiente de desarrollo, es importante realizar algunas tareas previas. Estas tareas incluyen establecer la conexión de GitHub a través de SSH, así como instalar Docker, nvm y Python 3.
 
-La conexión de GitHub a través de SSH permite una comunicación segura entre tu máquina local y el servidor de GitHub. Esto es necesario para clonar y gestionar el repositorio de manera segura.
+Before starting to install the development environment, it is important to perform some preliminary tasks. These tasks include establishing the GitHub connection via SSH, as well as installing Docker, nvm, and Python 3.
 
-Docker es una plataforma que simplifica el proceso de configuración y ejecución de aplicaciones en contenedores. Proporciona un ambiente consistente y aislado para el desarrollo y despliegue de aplicaciones.
+Connecting to GitHub via SSH allows secure communication between your local machine and the GitHub server. This is necessary to clone and manage the repository securely.
 
-nvm, o Node Version Manager, es una herramienta que facilita la instalación y gestión de múltiples versiones de Node.js en tu máquina. Esto es útil si necesitas trabajar con diferentes versiones de Node.js en diferentes proyectos.
+Docker is a platform that simplifies the process of setting up and running containerized applications. Provides a consistent and isolated environment for application development and deployment.
 
-Python 3 es un lenguaje de programación ampliamente utilizado y es necesario instalarlo para ejecutar ciertas aplicaciones y herramientas en el ambiente de desarrollo.
+nvm, or Node Version Manager, is a tool that makes it easy to install and manage multiple versions of Node.js on your machine. This is useful if you need to work with different versions of Node.js in different projects.
 
-Realizar estas tareas previas garantizará que tu ambiente de desarrollo esté configurado correctamente y pueda funcionar de manera óptima. Asegúrate de seguir la guía a continuación adecuadamente para establecer la conexión de GitHub a través de SSH, instalar Docker, nvm y Python 3 antes de continuar con la instalación del ambiente de desarrollo.
+Python 3 is a widely used programming language and is required to be installed to run certain applications and tools in the development environment.
 
-1. [Establecer conexión con GitHub a través de SSH](#establecer-conexión-con-github-a-través-de-ssh)  
-1.1 [Clonar repositorio como Developer](#clonar-repositorio-como-developer)
-2. [Instalar Docker en Linux](#instalar-docker-en-linux)
-3. [Instalar nvm y gestionar versiones de Node.js](#instalar-nvm-y-gestionar-versiones-de-nodejs)  
-3.1 [Instalación de nvm](#instalación-de-nvm)  
-3.2 [Uso del archivo .nvmrc](#uso-del-archivo-nvmrcy)
-4. [Instalar Python 3](#instalar-python-3)
+Performing these preliminary tasks will ensure that your development environment is configured correctly and can function optimally. Make sure you follow the guide below properly to establish the GitHub connection via SSH, install Docker, nvm, and Python 3 before proceeding with the installation of the development environment.
 
-Las siguientes herramientas también deben estar instaladas en el sistema operativo: `git` y `ssh`. El comando para instalarlo es el siguiente:
+1. [Establish connection to GitHub via SSH](#establish-connection-to-github-via-ssh)
+1.1 [Clone repository as Developer](#clone-repository-as-developer)
+2. [Install Docker on Linux](#install-docker-on-linux)
+3. [Install nvm and manage Node.js versions](#install-nvm-and-manage-nodejs-versions)
+3.1 [nvm installation](#nvm-installation)
+3.2 [Use of .nvmrc file](#use-of-nvmrcy-file)
+4. [Install Python 3](#install-python-3)
+
+## Install GNU Linux Ubuntu in a Virtual Machine 
+
+You can see this tutorial to install Ubuntu in a Virtual Machine
+
+(YouTube Tutorial)[https://www.youtube.com/watch?v=rJ9ysibH768]
+
+## Install Git and SSH 
+
+The following tools must also be installed on the operating system: `git` and `ssh`. The command to install it is the following:
+
+```
+sudo apt-get update
+sudo apt-get upgrade -y
+```
 
 ```
 sudo apt install git openssh-server
 ```
 
 ----
-## Establecer conexión con GitHub a través de SSH
+## Establish connection to GitHub via SSH 
+{{ ¡¡ This step is only necessary for developers/collaborators of the project !! }} 
 
    ```
    cd
    cd .ssh/
    ```
 
-1. Genera una nueva clave SSH en tu máquina local, si aún no tienes una. Puedes usar el siguiente comando en tu terminal:
+1. Generate a new SSH key on your local machine, if you don't already have one. You can use the following command in your terminal:
    ```
    ssh-keygen -t ed25519 -b 4096 -C "{yourusername@emaildomain.com}" -f {ssh-key-name}
    ```
-   {username@emaildomain.com} is the email address associated with the Bitbucket Cloud account, such as your work email account.
-   {ssh-key-name} is the output filename for the keys. We recommend using a identifiable name such as bitbucket_work.
+   {username@emaildomain.com} is the email address associated with the GitHUb Cloud account, such as your work email account.
+   {ssh-key-name} is the output filename for the keys. We recommend using a identifiable name such as 'ssh-key-nsac2023'.
 
-2. Agrega una contraseña. 
+2. Add a password and remember it. 
 
-3. Add the ssh key to your local and copy the .pud
+3. Add the ssh key to your local and copy the .pub
    ```
    ssh-add {ssh-key-name}
    ```
    ```
    cat {ssh-key-name}.pub
    ```
-5. Copia la salida completa del comando anterior.
+5. Copy the complete output of the previous command.
 
-6. Inicia sesión en tu cuenta de GitHub y haz clic en tu foto de perfil en la esquina superior derecha de la pantalla. Luego, selecciona "Settings" en el menú desplegable.
+6. Sign in to your GitHub account and click your profile photo in the top right corner of the screen. Then, select “Settings” from the drop-down menu.
 
-7. En la barra lateral izquierda, haz clic en "SSH and GPG keys".
+7. In the left sidebar, click "SSH and GPG keys."
 
-8. Haz clic en "New SSH key" o "Add SSH key".
+8. Click "New SSH key" or "Add SSH key".
 
-9. Proporciona un título descriptivo para tu clave SSH en el campo "Title".
+9. Provide a descriptive title for your SSH key in the "Title" field.
 
-10. Pega tu clave pública en el campo "Key".
+10. Paste your public key into the "Key" field.
 
-11. Haz clic en "Add SSH key" para guardar y agregar la clave a tu cuenta de GitHub.
+11. Click "Add SSH key" to save and add the key to your GitHub account.
 
-¡Eso es todo! Ahora has conectado con éxito GitHub a través de SSH. Puedes probar la conexión usando el siguiente comando en la terminal:
+That's all! You have now successfully connected GitHub via SSH. You can test the connection using the following command in the terminal:
+
 ```
 ssh -T git@github.com
 ```
 
-### Clonar repositorio como Developer
+## Clone repository
 
-Ya que se ha establecido la conexión con GitHub a través de SSH, puedes proceder a clonar el repositorio para colaborar en el desarrollo con los siguientes pasos:
-
-1. Abre tu terminal o línea de comandos.
-
-2. Navega hasta el directorio donde deseas clonar el repositorio usando el comando `cd [directorio]`. Por ejemplo, si deseas clonar el repositorio en el directorio "Documentos", ingresa `cd Documentos`.
-
-3. Una vez en el directorio adecuado, utiliza el siguiente comando para clonar el repositorio:
+Clone the repository to the 'Documents' folder: 
 
 ```
-git clone git@github.com:DanInaganMaca/NSAC2023-Demo.git
+cd
+cd Documents/
 ```
-
-4. Presiona Enter para ejecutar el comando. Esto creará una copia local del repositorio en tu directorio actual.
-
-¡Y eso es todo! Ahora has clonado el repositorio del ambiente de desarrollo como desarrollador en GitHub.
-
-**Nota:** si se va a visualizar el repositorio como no colaborador/developer utilizar el siguiente comando:
-
 ```
 git clone https://github.com/DanInaganMaca/NSAC2023-Demo.git
 ```
 
+Or only for collaborators/developers: 
 
-## Instalar Docker en Linux
+```
+cd
+cd Documents/
+```
+```
+git clone git@github.com:DanInaganMaca/NSAC2023-Demo.git
+```
 
-1. Actualiza los paquetes existentes en tu sistema ejecutando el siguiente comando en la terminal:
+
+## Install Docker on Linux
+
+1. Update the existing packages on your system by running the following command in the terminal:
+
    ```
-   sudo apt update
+      sudo apt-get update
+      sudo apt-get upgrade -y
    ```
 
-2. Instala los paquetes necesarios para permitir que apt utilice repositorios a través de HTTPS:
+2. Install the necessary packages to allow apt to use repositories over HTTPS:
    ```
    sudo apt install apt-transport-https ca-certificates curl software-properties-common
    ```
 
-3. Descarga e importa la clave GPG oficial de Docker ejecutando el siguiente comando en la terminal:
+3. Download and import the official Docker GPG key by running the following command in the terminal:
    ```
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
    ```
 
-4. Añade el repositorio de Docker a las fuentes de apt ejecutando el siguiente comando:
+4. Add the Docker repository to the apt sources by running the following command:
    ```
    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
-5. Actualiza los paquetes nuevamente para incluir el repositorio de Docker:
+5. Update the packages again to include the Docker repository:
    ```
-   sudo apt update
+      sudo apt-get update
+      sudo apt-get upgrade -y
    ```
 
-6. Instala Docker usando el siguiente comando:
+6. Install Docker using the following command:
    ```
    sudo apt install docker-ce docker-ce-cli containerd.io
    ```
 
-7. Verifica si Docker se ha instalado correctamente ejecutando el siguiente comando:
+7. Check if Docker has been installed correctly by running the following command:
    ```
    docker --version
    ```
 
-8. Para permitir que tu usuario ejecute comandos Docker sin usar `sudo`, añade tu usuario al grupo `docker` ejecutando el siguiente comando:
+8. To allow your user to run Docker commands without using `sudo`, add your user to the `docker` group by running the following command:
    ```
    sudo usermod -aG docker $USER
    ```
 
-9. Cierra la sesión actual o reinicia tu máquina para aplicar los cambios.
+9. Log out of the current session or restart your machine to apply the changes.
 
-## Instalar nvm y gestionar versiones de Node.js
+## Install nvm and manage Node.js versions
 
-Este es un tutorial para ayudarte a instalar nvm (Node Version Manager) en tu sistema y utilizar el archivo .nvmrc para especificar y gestionar la versión de Node.js necesaria del proyecto.
+This is a tutorial to help you install nvm (Node Version Manager) on your system and use the .nvmrc file to specify and manage the Node.js version required for your project.
 
 ### Instalación de nvm
 
-1. Abre tu terminal y ejecuta el siguiente comando para descargar e instalar el script de instalación de nvm:
+1. Open your terminal and run the following command to download and install the nvm installation script:
 
    ```
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
    ```
 
-2. Una vez que la instalación se complete, cierra y vuelve a abrir la terminal o ejecuta el siguiente comando para cargar nvm en tu sesión actual:
+2. Once the installation is complete, close and reopen the terminal or run the following command to load nvm into your current session:
 
    ```
    source ~/.bashrc
    ```
 
-   Si estás usando bash como tu shell, puedes usar también el archivo `~/.bash_profile` en lugar de `~/.bashrc`.
+If you are using bash as your shell, you can also use the `~/.bash_profile` file instead of `~/.bashrc`.
 
-3. Verifica que nvm se haya instalado correctamente ejecutando el siguiente comando:
+3. Verify that nvm has been installed correctly by running the following command:
 
    ```
    nvm --version
    ```
+   
+You should see the nvm version number if the installation was successful.
 
-   Deberías ver el número de versión de nvm si la instalación fue exitosa.
 
-### Uso del archivo .nvmrc
+### Using the .nvmrc file
 
-El archivo .nvmrc permite especificar una versión específica de Node.js para utilizar en un proyecto determinado. Sigue estos pasos para utilizarlo:
+The .nvmrc file allows you to specify a specific version of Node.js to use for a given project. Follow these steps to use it:
 
-1. Dirígete al directorio del ambiente de frontend de React, el cual se encuentra en la siguiente ruta:
+1. Go to the React frontend environment directory, which is located at the following path:
 
 ```
-  cd ./docker-NSAC2023-demo/react_app
+   cd
+   cd Documents/
+   cd NSAC2023-Demo/docker-NSAC2023-demo/react_app/
 ```
 
-2. Ejecuta el siguiente comando para dejar que nvm seleccione y establezca la versión específica de Node.js:
+2. Run the following command to let nvm select and set the specific Node.js version:
 
    ```
    nvm install
    ```
 
-   nvm leerá el archivo .nvmrc y descargará e instalará automáticamente la versión especificada de Node.js si aún no está instalada en tu sistema.
+nvm will read the .nvmrc file and automatically download and install the specified version of Node.js if it is not already installed on your system.
 
-3. Una vez que se complete la instalación, nvm habrá configurado la versión de Node.js especificada en el archivo .nvmrc. Puedes verificarlo ejecutando el siguiente comando:
+3. Once the installation is complete, nvm will have configured the version of Node.js specified in the .nvmrc file. You can verify it by running the following command:
 
    ```
    node --version
    ```
 
-   Deberías ver que la versión de Node.js sea la misma que especifica el archivo .nvmrc.
+You should see that the Node.js version is the same as what the .nvmrc file specifies.
 
-¡Y eso es todo! Ahora estás utilizando la versión de Node.js específica para el proyecto a través del archivo .nvmrc.
+And that's it! You are now using the project-specific version of Node.js via the .nvmrc file.
 
-## Instalar Python 3
+## Install Python 3
 
-Para instalar Python 3, en la terminal, ejecuta el siguiente comando:
+To install Python 3, in the terminal, run the following command:
 
 ```
   sudo apt install python3 python3-pip
 ```
 
-El sistema te pedirá que confirmes la instalación y te mostrará el espacio en disco que se utilizará. Si estás de acuerdo, presiona "y" y luego "Enter" para comenzar la instalación.
+The system will ask you to confirm the installation and show you the disk space that will be used. If you agree, press "y" and then "Enter" to begin the installation.
 
-Una vez que la instalación finalice, podrás verificar la versión de Python 3 ejecutando el siguiente comando:
+Once the installation is complete, you can check the Python 3 version by running the following command:
 
 ```
  python3 --version
 ```
 
-Debería mostrarse la versión instalada de Python 3.
+The installed version of Python 3 should be displayed.
 
-¡Y eso es todo! Has instalado Python 3 en tu sistema.
+And that's it! You have installed Python 3 on your system.
 
 ---
 
@@ -220,6 +240,8 @@ Debería mostrarse la versión instalada de Python 3.
 
 1. Download the latest Miniconda installer script for 64-bit Linux using wget:
    ```
+      cd
+      cd Downloads/ 
       wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
    ```
 
@@ -248,8 +270,9 @@ Debería mostrarse la versión instalada de Python 3.
 
 --- 
 
-## Continua con la guía para ejecutar el ambiente de desarrollo
+# Part II: 
+## Continue with the guide to run the development environment
 
-Una vez que todas las herramientas necesarias se encuentran instaladas en tu sistema, es momento de ejecutar el ambiente de desarrollo. Los pasos para ejecutar el ambiente se encuentran en la siguiente guía: 
+Once all the necessary tools are installed on your system, it is time to run the development environment. The steps to run the environment are found in the following guide:
 
-[Ejecutar ambiente de desarrollo](/docker-NSAC2023-demo/README.md)
+[Run development environment](/docker-NSAC2023-demo/README.md)

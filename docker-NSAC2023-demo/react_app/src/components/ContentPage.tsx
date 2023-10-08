@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react"
 import { IPage, IContent } from "../models/pages.model";
 import { getOne } from "../api/pages.api";
-import { Button, Card, Col, Row } from "antd";
+import { Button, Card, Col, List, Row } from "antd";
 import YouTube, { YouTubeProps } from "react-youtube";
 import { Link } from "react-router-dom";
 
@@ -52,6 +52,10 @@ export function ContentPage({ code }: ContentPageProps) {
         return <ButtonInsideComponent data={content} />;
       case "buttonOutside":
         return <ButtonOutsideComponent data={content} />;
+      case "listOrder":
+        return <ListOrderComponent data={content} />;
+      case "listUnorder":
+        return <ListUnorderComponent data={content} />;
       default:
         return null;
     }
@@ -218,7 +222,11 @@ function VideoComponent({ data, only = false }: { data: IContent, only?: boolean
     width: "640"
   }
 
-  return <YouTube videoId={videoId} opts={only ? onlyOpts : opts} />
+  const onlyVideoStyle: React.CSSProperties = {
+    padding: "25px 0px"
+  }
+
+  return <YouTube videoId={videoId} opts={only ? onlyOpts : opts} style={onlyVideoStyle} />
 }
 
 function CardComponent({ children }: CardComponentProps) {
@@ -269,17 +277,47 @@ function ButtonOutsideComponent({ data }: { data: IContent }) {
   )
 }
 
+function ListOrderComponent({ data }: { data: IContent }) {
+  const list = data.description;
+
+  const items = list?.split("-");
+
+  return (
+    <Col span={8}>
+      <ol>
+        {items && items.map((item, index) => (
+          <li key={index}>{item.trim()}</li>
+        ))}
+      </ol>
+    </Col>
+  )
+}
+
+function ListUnorderComponent({ data }: { data: IContent }) {
+  const list = data.description;
+
+  const items = list?.split("-");
+
+  return (
+    <Col span={8}>
+      <ul>
+        {items && items.map((item, index) => (
+          <li key={index}>{item.trim()}</li>
+        ))}
+      </ul>
+    </Col>
+  )
+}
+
 // Themes 
 const themes: React.CSSProperties[] = [
   {
     backgroundColor: "#001529",
     color: "white",
-    padding: "15px 0px"
   },
   {
     backgroundColor: "#3b5a9d",
     color: "white",
-    padding: "15px 0px"
   }
 ]
 

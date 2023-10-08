@@ -209,11 +209,12 @@ To verify that the Django backend environment has established the connection cor
 #### Verify Database Migration
 Ensure that Django migrations have been applied correctly. It is important to have executed the command to apply migrations, so it will apply the pending migrations and create the necessary tables in the database.
 ```
-  docker compose exec python /app/venv/bin/python manage.py migrate
-```
-```
   docker compose exec python /app/venv/bin/python manage.py makemigrations
 ```
+```
+  docker compose exec python /app/venv/bin/python manage.py migrate
+```
+
 #### Create a Super User
 
 Create a Django superuser to be able to access the admin panel and run tests. Run the following command and follow the instructions:

@@ -188,7 +188,7 @@ function HasDescriptionComponent({ data }: { data: IContent }) {
 
 // Components
 function TitleComponent({ data }: { data: IContent }) {
-  return <h1>{data.title}</h1>;
+  return <h2>{data.title}</h2>;
 }
 
 function DescriptionComponent({ data, card = false }: { data: IContent, card?: boolean }) {

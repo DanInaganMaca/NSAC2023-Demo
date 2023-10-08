@@ -253,19 +253,18 @@ function ButtonInsideComponent({ data }: { data: IContent }) {
 function ButtonOutsideComponent({ data }: { data: IContent }) {
   const path: string | undefined = data?.description;
 
-  const openOutSiceLink = (url: string | undefined) => {
-    window.open(url, "_blank")
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.open(path, "_blank");
   }
 
   return (
     <Col span={8} style={{ margin: "10px 0px" }}>
-      <a href={path} onClick={() => openOutSiceLink(path)}>
-        <Row justify={"center"}>
-          <Button type={"default"} size={"large"} icon={data.imageUrl} ghost block>
-            {data.title}
-          </Button>
-        </Row>
-      </a>
+      <Row justify={"center"}>
+        <Button type={"default"} size={"large"} icon={data.imageUrl} ghost block onClick={handleClick}>
+          {data.title}
+        </Button>
+      </Row>
     </Col >
   )
 }

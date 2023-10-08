@@ -8,7 +8,7 @@ export function ImagenSpectroscopyPage() {
   return (
     <Col span={24}>
       <ImageHeader img={header} />
-      <ContentPage key={'fundamentals'} code={'fundamentals'} />
+      <ContentPage key={'imageSpectrocopy'} code={'imageSpectrocopy'} />
     </Col>
   )
 }

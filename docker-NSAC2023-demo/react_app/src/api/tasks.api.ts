@@ -1,7 +1,7 @@
 import axios from "axios"
 import { environment } from "../environments/environment.dev";
 
-const endpoint: string = environment.backendUrl;
+const endpoint: string = environment.production ? environment.remoteBackendUrl : environment.backendUrl;
 
 const tasksApi = axios.create({
   baseURL: `${endpoint}/tasks`

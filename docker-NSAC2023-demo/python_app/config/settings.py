@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'local': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': DB_NAME,
         'USER': DB_USER,
@@ -93,7 +93,7 @@ DATABASES = {
         'HOST': DB_HOST,
         'PORT': DB_PORT
     },
-    'remote': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': SUPABASE_DB,
         'USER': SUPABASE_USER,

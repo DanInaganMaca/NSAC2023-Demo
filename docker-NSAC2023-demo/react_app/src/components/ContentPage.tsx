@@ -48,8 +48,10 @@ export function ContentPage({ code }: ContentPageProps) {
         return <HasVideoLeftComponent data={content} />;
       case "hasVideoRight":
         return <HasVideoRightComponent data={content} />;
-      case "button":
-        return <ButtonComponent data={content} />;
+      case "buttonInside":
+        return <ButtonInsideComponent data={content} />;
+      case "buttonOutside":
+        return <ButtonOutsideComponent data={content} />;
       default:
         return null;
     }
@@ -232,7 +234,7 @@ function CardComponent({ children }: CardComponentProps) {
   )
 }
 
-function ButtonComponent({ data }: { data: IContent }) {
+function ButtonInsideComponent({ data }: { data: IContent }) {
   const path: string | undefined = data?.description;
 
   return (
@@ -244,6 +246,26 @@ function ButtonComponent({ data }: { data: IContent }) {
           </Button>
         </Row>
       </Link>
+    </Col >
+  )
+}
+
+function ButtonOutsideComponent({ data }: { data: IContent }) {
+  const path: string | undefined = data?.description;
+
+  const openOutSiceLink = (url: string | undefined) => {
+    window.open(url, "_blank")
+  }
+
+  return (
+    <Col span={8} style={{ margin: "10px 0px" }}>
+      <a href={path} onClick={() => openOutSiceLink(path)}>
+        <Row justify={"center"}>
+          <Button type={"default"} size={"large"} icon={data.imageUrl} ghost block>
+            {data.title}
+          </Button>
+        </Row>
+      </a>
     </Col >
   )
 }

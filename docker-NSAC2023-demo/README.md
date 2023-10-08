@@ -71,6 +71,13 @@ And that's it! You have installed the frontend environment dependencies.
    DB_PASSWORD=secret
    DB_HOST=db
    DB_PORT=5432
+
+   # Supabase
+
+   SUPABASE_DB=postgres
+   SUPABASE_USER=postgres
+   SUPABASE_HOST=db.cdbqpsbsmbndcmijyrkh.supabase.co
+   SUPABASE_PW=Spectrum4Bio.2023
    ```
    Verify this with:
    ```

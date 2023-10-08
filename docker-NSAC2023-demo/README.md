@@ -284,7 +284,7 @@ Next, open a web browser and access the Django admin panel by entering the addre
 
 ```
 
-## Troubleshooting
+## Troubleshooting (Optional)
 
 This section records solutions to problems that arise when building container images and when containers are running.
 

@@ -152,9 +152,9 @@ And finally
    exit
    ```
 
-## Run Docker compose
+## Build Docker Project 
 
-1. Make sure you have Docker and Docker Compose installed on your system. You can verify it by running the following commands in the terminal:
+1. Make sure you have Docker and Docker Compose installed on your system. You can verify it by running the following commands in the terminal (Terminal A):
    ```
    cd
    cd Documents/
@@ -171,44 +171,86 @@ If you get the corresponding versions, you can proceed to the next step. If not,
 3. Before running the containers, you need to build the Docker images if they are not already built. To do this, run the following command in the terminal:
 
    ```
-   docker compose build
+   docker compose build 
    ```
 
 This will read the `docker-compose.yml` file and build the necessary Docker images for the services specified in the file. This step is required only on the first run or when changes are made to images or build files.
 
-4. Once the images are built, you can run the containers using the following command in the terminal:
-   ```
-   docker compose up
-   ```
-
-This command will read the `docker-compose.yml` file and start creating and running containers for each service specified in the file. You will see the log output of each container in the terminal.
-
-    If you want to run the containers in the background (detached mode), you can add the `-d` flag to the command:
+4. Run the Project
    ```
    docker compose up -d
    ```
-5. Once all containers are up and running, you will have access to the services defined in `docker-compose.yml`.
-
-**Recommendation:** I recommend that after running the containers and if it was through the command to run in the background, keep the following command in mind to observe the registration of the application services:
-
+   And next
 ```
   docker compose logs -f
 ```
 
-To exit the log view press `Ctrl+c`.
+5. Verify Database Migration
+Ensure that Django migrations have been applied correctly. It is important to have executed the command to apply migrations, so it will apply the pending migrations and create the necessary tables in the database.
 
-6. To stop and remove the containers, you can run the following command in the same terminal:
+In other terminal (Terminal B): 
+   ```
+   cd
+   cd Documents/
+   cd NSAC2023-Demo/docker-NSAC2023-demo/
+   ```
+```
+  docker compose exec python /app/venv/bin/python manage.py makemigrations
+```
+```
+  docker compose exec python /app/venv/bin/python manage.py migrate
+```
+```
+   exit
+```
+
+
+6. Once the images are built, you can run the containers using the following command in the terminal (Terminal A): Press `Ctrl+c`.
+
+7. To stop and remove the containers, you can run the following command in the same terminal:
    ```
    docker compose down
    ```
-
 This will stop and remove all containers created by `docker-compose`.
 
 Remember to run the `docker-compose build` command the first time you run containers or each time you make changes to images or build files, and then you can use `docker-compose up` to start the containers.
 
+8. CONGRATULATIONS, THE DOCKER PROJECT WAS BUILT
+
 And that's it! You have run `docker-compose` successfully, built containers when necessary, and are using the services defined in the `docker-compose.yml` file.
 
-## Funcionality test
+## RUN THE PROJECT 
+1. Follow this commands: 
+   ```
+   cd
+   cd Documents/
+   cd NSAC2023-Demo/docker-NSAC2023-demo/
+   ```
+   ```
+   docker compose up -d
+   ```
+   ```
+     docker compose logs -f
+   ```
+2. Open this link in a browser
+   ```
+   http://localhost:5173/
+   ```
+CONGRATULATIONS, This is the Project !!!
+
+## Turn off the project
+
+1. Once the images are built, you can run the containers using the following command in the terminal: Press `Ctrl+c`.
+
+2. To stop and remove the containers, you can run the following command in the same terminal:
+   ```
+   docker compose down
+   ```
+This will stop and remove all containers created by `docker-compose`.
+
+3. The project was turn off!
+
+## Funcionality test (Optional)
 
 In this section all functional tests are recorded to know if the development environment was installed correctly.
 

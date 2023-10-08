@@ -62,7 +62,10 @@ And that's it! You have installed the frontend environment dependencies.
    ```
    Copy in that file the next, and save
    ```
-   # .env
+   #### .env 
+   # PostgreSQL
+
+   # Local DB 
 
    DEBUG=True
    SECRET_KEY=secret
@@ -72,7 +75,7 @@ And that's it! You have installed the frontend environment dependencies.
    DB_HOST=db
    DB_PORT=5432
 
-   # Supabase
+   # Remote DB - Supabase
 
    SUPABASE_DB=postgres
    SUPABASE_USER=postgres

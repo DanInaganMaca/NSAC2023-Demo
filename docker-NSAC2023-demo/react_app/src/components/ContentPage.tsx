@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react"
 import { IPage, IContent } from "../models/pages.model";
 import { getOne } from "../api/pages.api";
-import { Button, Card, Col, List, Row } from "antd";
+import { Button, Card, Col, Row } from "antd";
 import YouTube, { YouTubeProps } from "react-youtube";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,15 @@ export function ContentPage({ code }: ContentPageProps) {
       }
     }
     loadPage();
+    sortedData;
   }, [code])
+
+  console.log(contents);
+  const sortedData = sortByID(contents);
+
+  function sortByID(data: IContent[] | undefined): IContent[] | undefined {
+    return data?.sort((a: IContent, b: IContent) => Number(a?.id) - Number(b?.id));
+  }
 
   // Función para renderizar contenido basado en el tipo
   const renderContent = (content: IContent) => {
@@ -63,7 +71,7 @@ export function ContentPage({ code }: ContentPageProps) {
 
   return (
     <div>
-      {contents && contents?.map((content: IContent) => {
+      {sortedData && sortedData?.map((content: IContent) => {
         return (
           <div style={themes[content.theme]} key={content.id}>
             <Row justify={"center"} align={"middle"}>

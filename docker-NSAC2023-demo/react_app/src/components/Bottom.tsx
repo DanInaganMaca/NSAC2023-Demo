@@ -43,6 +43,11 @@ function AboutUsComponent() {
           About Us
         </h5>
       </Row>
+      <Row justify={"center"}>
+        <h5>
+          About Us
+        </h5>
+      </Row>
     </div>
   )
 }

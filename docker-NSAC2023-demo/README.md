@@ -129,9 +129,15 @@ And that's it. You have now installed the backend environment dependencies.
    ```
 
 5. Install python dependences
+
    ```
-   pip install -r requirements.txt
+   pip install --no-cache-dir -r requirements.txt
    ```
+In case a pip or python version error appears, use pip3 as follows: 
+   ```
+   pip3 install --no-cache-dir -r requirements.txt
+   ```
+And finally
    ```
    exit
    ```

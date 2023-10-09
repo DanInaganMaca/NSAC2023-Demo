@@ -1,5 +1,5 @@
 import { Carousel, Col } from "antd";
-import slide1 from "../assets/slide1.png";
+// import slide1 from "../assets/slide1.png";
 import slide2 from "../assets/slide2.png";
 import slide3 from "../assets/slide3.png";
 import slide4 from "../assets/slide4.png";
@@ -9,33 +9,33 @@ interface ImagenCarousel {
   id: string;
   src: string;
   alt: string;
+  description?: string;
 }
 
 const imagesCarousel: ImagenCarousel[] = [
   {
-    id: "1",
-    src: slide1,
-    alt: "slide1"
-  },
-  {
     id: "2",
     src: slide2,
-    alt: "slide2"
+    alt: "slide2",
+    description: "(GCFR), is known for its exceptional biodiversity and unique geology due to the fold belt."
   },
   {
     id: "3",
     src: slide3,
-    alt: "slide3"
+    alt: "slide3",
+    description: "The Greater Cape Floristic Region of South Africa has the richest temperate flora and the third highest marine endemism in the world."
   },
   {
     id: "4",
     src: slide4,
-    alt: "slide4"
+    alt: "slide4",
+    description: "Fynbos is a type of vegetation native to South Africa and is known for its botanical diversity."
   },
   {
     id: "5",
     src: slide5,
-    alt: "slide5"
+    alt: "slide5",
+    description: "The South African coast is rich in marine life, and the area known as the 'Bay of Whales'."
   },
 ]
 
@@ -46,6 +46,7 @@ const textStyle: React.CSSProperties = {
   transform: 'translate(-50%, -50%)',
   textAlign: 'center',
   color: 'white', // Cambia el color del texto según tu diseño
+  textShadow: "0px 8px 12px rgba(0, 0, 0, 0.8)"
 };
 
 const imgStyle: React.CSSProperties = {
@@ -62,7 +63,7 @@ export function ImageCarousel() {
         return (
           <Col key={imagen.id} span={24}>
             <img src={imagen.src} alt={imagen.alt} style={imgStyle} />
-            <h1 style={textStyle}>Biodiversidad</h1>
+            <h3 style={textStyle}>{imagen.description}</h3>
           </Col>
         )
       })}

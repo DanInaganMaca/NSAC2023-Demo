@@ -238,6 +238,8 @@ And that's it! You have installed Python 3 on your system.
 
 ## Install Conda
 
+https://youtu.be/gNRVnNSZXmQ <---- Tutorial
+
 1. Download the latest Miniconda installer script for 64-bit Linux using wget:
    ```
       cd

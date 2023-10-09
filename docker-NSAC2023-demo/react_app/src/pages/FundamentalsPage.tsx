@@ -4,7 +4,7 @@ import { ImageHeader } from "../components/ImageHeader";
 import header from "../assets/imageHeaderFundamentals.png"
 
 
-export function FundamentalsPage() {
+export default function FundamentalsPage() {
   return (
     <Col span={24} style={{ background: "#001529" }}>
       <ImageHeader img={header} />

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
-export function TaskFormPage() {
+export default function TaskFormPage() {
 
   const {
     register,

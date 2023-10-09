@@ -2,7 +2,7 @@ import { ContentPage } from "../components/ContentPage";
 import { ImageCarousel } from "../components/ImageCarousel";
 
 
-export function HomePage() {
+export default function HomePage() {
 
   return (
     <>

@@ -40,6 +40,10 @@ export function ContentPage({ code }: ContentPageProps) {
     switch (content?.contentType?.code) {
       case "onlyTitle":
         return <TitleComponent data={content} />;
+      case "subTitle":
+        return <SubTitleComponent data={content} />;
+      case "titleAndSubTitle":
+        return <TitleAndSubTitleComponent data={content} />;
       case "onlyDescription":
         return <DescriptionComponent data={content} />;
       case "onlyImage":
@@ -56,6 +60,14 @@ export function ContentPage({ code }: ContentPageProps) {
         return <HasVideoLeftComponent data={content} />;
       case "hasVideoRight":
         return <HasVideoRightComponent data={content} />;
+      case "hasImageLeftWithoutTitle":
+        return <HasImageLeftWithoutTitleComponent data={content} />;
+      case "hasImageRightWithoutTitle":
+        return <HasImageRightWithoutTitleComponent data={content} />;
+      case "hasVideoLeftWithoutTitle":
+        return <HasVideoLeftWithoutTitleComponent data={content} />;
+      case "hasVideoRightWithoutTitle":
+        return <HasVideoRightWithoutTitleComponent data={content} />;
       case "buttonInside":
         return <ButtonInsideComponent data={content} />;
       case "buttonOutside":
@@ -64,6 +76,8 @@ export function ContentPage({ code }: ContentPageProps) {
         return <ListOrderComponent data={content} />;
       case "listUnorder":
         return <ListUnorderComponent data={content} />;
+      case "listConcatenada":
+        return <ListConcatenadaComponent data={content} />;
       default:
         return null;
     }
@@ -172,6 +186,74 @@ function HasVideoRightComponent({ data }: { data: IContent }) {
   );
 }
 
+function HasImageLeftWithoutTitleComponent({ data }: { data: IContent }) {
+  return (
+    <Col span={24}>
+      <Row align={"middle"} gutter={24}>
+        <Col span={12}>
+          <ImageComponent data={data} />
+        </Col>
+        <Col span={12}>
+          <CardComponent>
+            <DescriptionComponent data={data} card={true} />
+          </CardComponent>
+        </Col>
+      </Row>
+    </Col>
+  )
+}
+
+// Tiene Imagen en la derecha
+function HasImageRightWithoutTitleComponent({ data }: { data: IContent }) {
+  return (
+    <Col span={24}>
+      <Row align={"middle"} gutter={24}>
+        <Col span={12}>
+          <CardComponent>
+            <DescriptionComponent data={data} card={true} />
+          </CardComponent>
+        </Col>
+        <Col span={12}>
+          <ImageComponent data={data} />
+        </Col>
+      </Row>
+    </Col>
+  )
+}
+
+function HasVideoLeftWithoutTitleComponent({ data }: { data: IContent }) {
+  return (
+    <Col span={24}>
+      <Row align={"middle"} gutter={24}>
+        <Col span={12}>
+          <VideoComponent data={data} />
+        </Col>
+        <Col span={12}>
+          <CardComponent>
+            <DescriptionComponent data={data} card={true} />
+          </CardComponent>
+        </Col>
+      </Row>
+    </Col>
+  );
+}
+
+function HasVideoRightWithoutTitleComponent({ data }: { data: IContent }) {
+  return (
+    <Col span={24}>
+      <Row align={"middle"} gutter={24}>
+        <Col span={12}>
+          <CardComponent>
+            <DescriptionComponent data={data} card={true} />
+          </CardComponent>
+        </Col>
+        <Col span={12}>
+          <VideoComponent data={data} />
+        </Col>
+      </Row>
+    </Col>
+  );
+}
 
 function HasDescriptionComponent({ data }: { data: IContent }) {
   return (
@@ -189,6 +271,26 @@ function HasDescriptionComponent({ data }: { data: IContent }) {
 // Components
 function TitleComponent({ data }: { data: IContent }) {
   return <h2>{data.title}</h2>;
+}
+
+function SubTitleComponent({ data }: { data: IContent }) {
+  return <h3>{data.title}</h3>;
+}
+
+function TitleAndSubTitleComponent({ data }: { data: IContent }) {
+  return (
+    <Col span={24}>
+      <Row justify={"center"}>
+        <TitleComponent data={data} />
+      </Row>
+      <Row justify={"center"}>
+        <h3>{data.imageUrl}</h3>
+      </Row>
+      <Row justify={"center"}>
+        <DescriptionComponent data={data} />
+      </Row>
+    </Col>
+  );
 }
 
 function DescriptionComponent({ data, card = false }: { data: IContent, card?: boolean }) {
@@ -313,6 +415,34 @@ function ListUnorderComponent({ data }: { data: IContent }) {
           <li key={index}>{item.trim()}</li>
         ))}
       </ul>
+    </Col>
+  )
+}
+
+function ListConcatenadaComponent({ data }: { data: IContent }) {
+  const list = data.description;
+
+  const sections = list?.split("-");
+
+  return (
+    <Col span={8}>
+      {sections && sections.map((section, index) => {
+        const lines = section.split("\n");
+        const header = lines[0].trim();
+        const items = lines[1]?.split("*");
+        // const items = lines.slice(1).map(item => item.trim());
+
+        return (
+          <div key={index}>
+            <h5>{header}</h5>
+            <ul>
+              {items.map((item, itemIndex) => (
+                <li key={itemIndex}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </Col>
   )
 }

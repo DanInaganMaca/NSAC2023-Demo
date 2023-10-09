@@ -1,4 +1,4 @@
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 import { Navigation } from "../components/Navigation";
 import { ReactNode } from "react"; // Importa ReactNode
 import { Bottom } from "../components/Bottom";
@@ -10,8 +10,8 @@ interface TemplateProps {
 }
 
 export function Template({ children }: TemplateProps) {
-
   return (
+
     <Layout className="layout">
       <Header style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Navigation />

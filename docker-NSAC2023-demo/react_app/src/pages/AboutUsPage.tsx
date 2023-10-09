@@ -1,7 +1,7 @@
 import { Col } from "antd";
 import { ContentPage } from "../components/ContentPage";
 
-export function AboutUsPage() {
+export default function AboutUsPage() {
   return (
     <Col span={24} style={{ background: "#001529" }}>
       <div style={{ textAlign: "center", color: "white" }}>
